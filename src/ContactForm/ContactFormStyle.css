@@ -1,0 +1,28 @@
+.ContactForm {
+  max-width: 800px;
+  margin: 1em auto;
+  padding: 1em;
+  border-top: 6px solid #FF7043;
+  text-align: left;
+}
+
+.halfWidth {
+  float: left;
+  width: 48%;
+}
+
+.halfWidth:nth-of-type(2n) {
+  float: right;
+}
+
+.sendButton {
+  margin-top: 1em;
+  display: block;
+  text-align: center;
+}
+
+@media screen and (max-width: 480px) {
+  .halfWidth {
+    width: 100%;
+  }
+}

@@ -3,6 +3,8 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import RaisedButton from 'material-ui/RaisedButton';
 import { grey900, deepOrange400 } from 'material-ui/styles/colors';
+
+import ContactForm from './ContactForm';
 import './App.css';
 
 // Create a theme for material-ui
@@ -35,11 +37,12 @@ class App extends React.Component {
   render() {
     return (
       <MuiThemeProvider muiTheme={muiTheme}>
-        <div className="center">
+        <main className="center">
           <h1>Cameramakers</h1>
           <p>Cameras saved: {this.state.cameraCount}</p>
           <RaisedButton label="Repair a camera" primary onClick={this.addCamera} />
-        </div>
+          <ContactForm />
+        </main>
       </MuiThemeProvider>
     );
   }
