@@ -296,6 +296,7 @@ class ContactForm extends React.Component {
               onClick={this.handleMail}
               disabled={!this.formIsValid() || this.state.isSending}
             />
+            <p>Note: No message will actually be sent. This site is in development.</p>
           </div>
 
           {this.state.isSending ?
