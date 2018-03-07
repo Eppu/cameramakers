@@ -41,8 +41,11 @@ const newState = {
     touched: false,
     error: errorMessages.emptyInput,
   },
-  error: '',
   isSending: false,
+  response: {
+    status: undefined,
+    error: undefined,
+  },
 };
 
 
@@ -112,14 +115,21 @@ class ContactForm extends React.Component {
     this.handleChange = this.handleChange.bind(this);
     this.formIsValid = this.formIsValid.bind(this);
     this.handleMail = this.handleMail.bind(this);
+    this.handleError = this.handleError.bind(this);
   }
 
 
-  /**
-   * Resets state.
-  */
-  resetState() {
-    this.setState(newState);
+  handleError(errorText) {
+    // Server did not respond.
+    const currentState = {
+      ...this.state,
+      response: {
+        status: 'error',
+        error: errorText,
+      },
+      isSending: false,
+    };
+    this.setState(currentState);
   }
 
 
@@ -167,9 +177,25 @@ class ContactForm extends React.Component {
    * @returns {bool} Whether or not the form is valid.
   */
   formIsValid() {
-    const errors = Object.values(this.state).filter(item => item.error !== undefined);
-    // If errors exist, form isn't valid.
-    if (errors.length > 0) return false;
+    // Which state fields do we check for errors
+    const allowed = ['firstName', 'lastName', 'email', 'subject', 'message'];
+
+    // Loop through above state fields and see if they have an error.
+    for (let i = 0; i < Object.entries(this.state).length; i += 1) {
+      // Get key and value from state
+      const entry = Object.entries(this.state)[i];
+      const key = entry[0];
+
+      // Only use state entries that belong in the email
+      if (allowed.includes(key)) {
+        const content = entry[1];
+        const { error } = content;
+        // If an error is found, return false.
+        if (error) return false;
+      }
+    }
+
+    // No errors were found. Form is valid!
     return true;
   }
 
@@ -204,25 +230,48 @@ class ContactForm extends React.Component {
     }
 
     // Debug function for testing sending message behaviour
-    return setTimeout(() => {
-      this.resetState();
-    }, 4000);
+    // return setTimeout(() => {
+    //   this.resetState();
+    // }, 4000);
 
     // Send email
     sendMail(formData)
       .then((res) => {
-        res.json()
-          .then((data) => {
-            console.log(data);
-            this.resetState();
-          })
-          .catch(() => console.error(new Error('Could not parse response as JSON')));
+        if (res.status === 200) {
+          res.json()
+            .then((data) => {
+              // Sending was OK and response data was successfully parsed.
+              this.setState({ ...newState, response: data, isSending: false });
+            })
+            .catch(() => {
+              // Could not parse response as JSON. Create an error in state.
+              this.handleError('Could not parse response as JSON');
+            });
+        } else {
+          // Server did not respond with 200. Create an error.
+          this.handleError('Did not receive 200 from remote');
+        }
       })
-      .catch(() => console.error('Did not receive a response from remote'));
+      .catch(() => {
+        // Server did not respond.
+        this.handleError('No response from remote');
+      });
   }
 
 
+  /**
+   * Display a message indicating contact form sending result.
+   * @param {bool} isError Is the message an error
+   * @param {string} msg Message to dislay
+   */
+  // displayMessage(isError, msg) {
+
+  // }
+
+
   render() {
+    const isValid = this.formIsValid();
+
     return (
       <div>
         <Paper className="ContactForm">
@@ -294,8 +343,17 @@ class ContactForm extends React.Component {
               label={this.state.isSending ? 'Sending...' : 'Send'}
               primary
               onClick={this.handleMail}
-              disabled={!this.formIsValid() || this.state.isSending}
+              disabled={!isValid || this.state.isSending}
             />
+
+            {this.state.response.status === 'error' ?
+              <p>Error! {this.state.response.error}</p>
+            : null}
+
+            {this.state.response.status === 'ok' ?
+              <p>Success!</p>
+            : null}
+
             <p>Note: No message will actually be sent. This site is in development.</p>
           </div>
 
@@ -305,6 +363,12 @@ class ContactForm extends React.Component {
               <p>Sending message...</p>
             </Paper>
           : null }
+
+          <RaisedButton
+            label="Log state"
+            primary
+            onClick={() => console.log(this.state)}
+          />
         </Paper>
       </div>
     );
