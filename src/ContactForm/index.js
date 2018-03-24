@@ -4,6 +4,7 @@ import CircularProgress from 'material-ui/CircularProgress';
 import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
 
+import FormResult from './FormResult';
 import sendMail from './sendMail';
 
 import './ContactFormStyle.css';
@@ -15,6 +16,8 @@ const errorMessages = {
   invalidEmail: 'Email address is not valid',
 };
 
+
+// Blank state we can reset to once the form has been submitted.
 const newState = {
   firstName: {
     value: '',
@@ -230,9 +233,9 @@ class ContactForm extends React.Component {
     }
 
     // Debug function for testing sending message behaviour
-    // return setTimeout(() => {
-    //   this.resetState();
-    // }, 4000);
+    /* return setTimeout(() => {
+      this.setState({ ...newState, response: { status: 'ok' }, isSending: false });
+    }, 4000); */
 
     // Send email
     sendMail(formData)
@@ -257,16 +260,6 @@ class ContactForm extends React.Component {
         this.handleError('No response from remote');
       });
   }
-
-
-  /**
-   * Display a message indicating contact form sending result.
-   * @param {bool} isError Is the message an error
-   * @param {string} msg Message to dislay
-   */
-  // displayMessage(isError, msg) {
-
-  // }
 
 
   render() {
@@ -346,13 +339,7 @@ class ContactForm extends React.Component {
               disabled={!isValid || this.state.isSending}
             />
 
-            {this.state.response.status === 'error' ?
-              <p>Error! {this.state.response.error}</p>
-            : null}
-
-            {this.state.response.status === 'ok' ?
-              <p>Success!</p>
-            : null}
+            <FormResult response={this.state.response} />
 
             <p>Note: No message will actually be sent. This site is in development.</p>
           </div>
