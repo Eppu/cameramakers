@@ -270,7 +270,7 @@ class ContactForm extends React.Component {
     const isValid = this.formIsValid();
 
     return (
-      <div>
+      <div className="container">
         <Paper className="ContactForm">
           <div className="formInputs">
             <h2>Contact Us</h2>
