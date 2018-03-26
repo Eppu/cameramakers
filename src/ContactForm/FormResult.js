@@ -1,6 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import { white } from 'material-ui/styles/colors';
+import CheckCircle from 'material-ui/svg-icons/action/check-circle';
+import Report from 'material-ui/svg-icons/content/report';
+
 import './ContactFormStyle.css';
 
 function FormResult(props) {
@@ -10,14 +14,24 @@ function FormResult(props) {
     // Form submission resulted in an error.
     if (props.response.status === 'error') {
       return (
-        <p className="FormResult error">Error! {response.error}</p>
+        <div>
+          <p className="FormResult error">
+            <Report className="icon" color={white} />
+            Oops! We were unable to send your message. {response.error}.
+          </p>
+        </div>
       );
     }
 
     // Form submission was a success.
     if (props.response.status === 'ok') {
       return (
-        <p className="FormResult ok">Success!</p>
+        <div>
+          <p className="FormResult ok">
+            <CheckCircle className="icon" color={white} />
+            Message sent. Thanks for getting in touch!
+          </p>
+        </div>
       );
     }
   }

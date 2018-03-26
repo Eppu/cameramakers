@@ -233,9 +233,13 @@ class ContactForm extends React.Component {
     }
 
     // Debug function for testing sending message behaviour
-    /* return setTimeout(() => {
-      this.setState({ ...newState, response: { status: 'ok' }, isSending: false });
-    }, 4000); */
+    const response = Math.random() > 0.5 ?
+      { status: 'ok' } :
+      { status: 'error', error: 'This is a dummy error that intentionally occurs 50% of the time' };
+
+    return setTimeout(() => {
+      this.setState({ ...newState, response, isSending: false });
+    }, 2000);
 
     // Send email
     sendMail(formData)
@@ -268,94 +272,88 @@ class ContactForm extends React.Component {
     return (
       <div>
         <Paper className="ContactForm">
-          <h2>Contact Us</h2>
-          <div className="halfWidth">
+          <div className="formInputs">
+            <h2>Contact Us</h2>
+            <div className="halfWidth">
+              <TextField
+                value={this.state.firstName.value}
+                hintText="Matthew"
+                floatingLabelText="First Name"
+                name="firstName"
+                onChange={this.handleChange}
+                onBlur={this.handleBlur}
+                errorText={this.state.firstName.touched ? this.state.firstName.error : ''}
+                disabled={this.state.isSending}
+                fullWidth
+              />
+            </div>
+            <div className="halfWidth">
+              <TextField
+                value={this.state.lastName.value}
+                hintText="Jackson"
+                floatingLabelText="Last Name"
+                name="lastName"
+                onChange={this.handleChange}
+                onBlur={this.handleBlur}
+                errorText={this.state.lastName.touched ? this.state.lastName.error : ''}
+                disabled={this.state.isSending}
+                fullWidth
+              />
+            </div>
             <TextField
-              value={this.state.firstName.value}
-              hintText="Matthew"
-              floatingLabelText="First Name"
-              name="firstName"
+              value={this.state.email.value}
+              hintText="matthew@thejacksons.com"
+              floatingLabelText="Email Address"
+              name="email"
               onChange={this.handleChange}
               onBlur={this.handleBlur}
-              errorText={this.state.firstName.touched ? this.state.firstName.error : ''}
+              type="email"
+              errorText={this.state.email.touched ? this.state.email.error : ''}
               disabled={this.state.isSending}
               fullWidth
             />
-          </div>
-          <div className="halfWidth">
             <TextField
-              value={this.state.lastName.value}
-              hintText="Jackson"
-              floatingLabelText="Last Name"
-              name="lastName"
+              value={this.state.subject.value}
+              hintText="What my message is about"
+              floatingLabelText="Subject"
+              name="subject"
               onChange={this.handleChange}
               onBlur={this.handleBlur}
-              errorText={this.state.lastName.touched ? this.state.lastName.error : ''}
+              errorText={this.state.subject.touched ? this.state.subject.error : ''}
               disabled={this.state.isSending}
               fullWidth
             />
-          </div>
-          <TextField
-            value={this.state.email.value}
-            hintText="matthew@thejacksons.com"
-            floatingLabelText="Email Address"
-            name="email"
-            onChange={this.handleChange}
-            onBlur={this.handleBlur}
-            type="email"
-            errorText={this.state.email.touched ? this.state.email.error : ''}
-            disabled={this.state.isSending}
-            fullWidth
-          />
-          <TextField
-            value={this.state.subject.value}
-            hintText="Message subject"
-            floatingLabelText="Subject"
-            name="subject"
-            onChange={this.handleChange}
-            onBlur={this.handleBlur}
-            errorText={this.state.subject.touched ? this.state.subject.error : ''}
-            disabled={this.state.isSending}
-            fullWidth
-          />
-          <TextField
-            value={this.state.message.value}
-            hintText="Message to the Cameramakers team"
-            floatingLabelText="Message"
-            name="message"
-            onChange={this.handleChange}
-            onBlur={this.handleBlur}
-            errorText={this.state.message.touched ? this.state.message.error : ''}
-            disabled={this.state.isSending}
-            fullWidth
-            multiLine
-          />
-
-          <div className="sendButton">
-            <RaisedButton
-              label={this.state.isSending ? 'Sending...' : 'Send'}
-              primary
-              onClick={this.handleMail}
-              disabled={!isValid || this.state.isSending}
+            <TextField
+              value={this.state.message.value}
+              hintText="My message to the Cameramakers team"
+              floatingLabelText="Message"
+              name="message"
+              onChange={this.handleChange}
+              onBlur={this.handleBlur}
+              errorText={this.state.message.touched ? this.state.message.error : ''}
+              disabled={this.state.isSending}
+              fullWidth
+              multiLine
             />
 
-            <FormResult response={this.state.response} />
+            <div className="sendButton">
+              <RaisedButton
+                label={this.state.isSending ? 'Sending...' : 'Send'}
+                primary
+                onClick={this.handleMail}
+                disabled={!isValid || this.state.isSending}
+              />
+            </div>
 
-            <p>Note: No message will actually be sent. This site is in development.</p>
+            {this.state.isSending ?
+              <Paper className="loadingIcon" zDepth={2}>
+                <CircularProgress size={80} thickness={5} />
+                <p>Sending message...</p>
+              </Paper>
+            : null }
           </div>
 
-          {this.state.isSending ?
-            <Paper className="loadingIcon" zDepth={2}>
-              <CircularProgress size={80} thickness={5} />
-              <p>Sending message...</p>
-            </Paper>
-          : null }
-
-          <RaisedButton
-            label="Log state"
-            primary
-            onClick={() => console.log(this.state)}
-          />
+          <FormResult response={this.state.response} />
         </Paper>
       </div>
     );
