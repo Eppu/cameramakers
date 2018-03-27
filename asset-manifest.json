@@ -1,8 +1,9 @@
 {
-  "main.css": "static/css/main.77ff0408.css",
-  "main.css.map": "static/css/main.77ff0408.css.map",
-  "main.js": "static/js/main.41adc19e.js",
-  "main.js.map": "static/js/main.41adc19e.js.map",
-  "static/media/background_01_optimized.jpg": "static/media/background_01_optimized.d05ea850.jpg",
-  "static/media/kameratori_doc_fb_cover_eng.jpg": "static/media/kameratori_doc_fb_cover_eng.733f4739.jpg"
+  "main.css": "static/css/main.7cec2585.css",
+  "main.css.map": "static/css/main.7cec2585.css.map",
+  "main.js": "static/js/main.299412ef.js",
+  "main.js.map": "static/js/main.299412ef.js.map",
+  "static/media/background_02_optimized.jpg": "static/media/background_02_optimized.89cfc3bf.jpg",
+  "static/media/doc_banner.png": "static/media/doc_banner.09ecec1a.png",
+  "static/media/team_01.jpg": "static/media/team_01.7e940602.jpg"
 }
