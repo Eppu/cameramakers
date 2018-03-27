@@ -12,11 +12,11 @@ function Footer(props) {
 }
 
 Footer.propTypes = {
-  children: PropTypes.element,
+  children: PropTypes.arrayOf(PropTypes.element),
 };
 
 Footer.defaultProps = {
-  children: null,
+  children: [],
 };
 
 export default Footer;

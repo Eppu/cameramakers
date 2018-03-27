@@ -26,12 +26,12 @@ function FullWidthImage(props) {
 }
 
 FullWidthImage.propTypes = {
-  image: PropTypes.element,
+  image: PropTypes.string,
   children: PropTypes.element,
 };
 
 FullWidthImage.defaultProps = {
-  image: null,
+  image: '',
   children: null,
 };
 
