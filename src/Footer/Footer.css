@@ -1,6 +1,30 @@
 footer {
   background-color: transparent;
-  margin: 1em;
+  margin: 2em auto;
   min-height: 100px;
   color: white;
+  padding: 0 2em;
+  max-width: 1400px;
+}
+
+footer h2 {
+  margin-bottom: 0.5em;
+}
+
+footer ul {
+  padding-left: 0;
+
+  -webkit-margin-before: 0;
+  -moz-margin-before: 0;
+  -o-margin-before: 0;
+  
+  -webkit-padding-start: 0;
+  -moz-padding-start: 0;
+  -o-padding-start: 0;
+
+  line-height: 1.5em;
+}
+
+footer ul li {
+  list-style-type: none;
 }

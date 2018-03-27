@@ -3,7 +3,7 @@
   background-size: cover;
   min-height: 700px;
 
-  background: url('../assets/background_01_optimized.jpg') no-repeat center center fixed; 
+  background: url('../assets/background_02_optimized.jpg') no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -13,11 +13,13 @@
 }
 
 .TitleImage .titles {
+  width: 100%;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   color: white;
+  text-shadow: 3px 3px 6px rgba(0,0,0,0.3);
 }
 
 .TitleImage .titles h1 {
@@ -31,4 +33,32 @@
   margin-bottom: 0;
   font-size: 1.4em;
   font-weight: 600;
+}
+
+@media screen and (max-width: 700px) {
+  .TitleImage {
+    min-height: 500px;
+  }
+
+  .TitleImage .titles h1 {
+    font-size: 3em;
+  }
+  
+  .TitleImage .titles p {
+    font-size: 1em;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .TitleImage {
+    min-height: 300px;
+  }
+
+  .TitleImage .titles h1 {
+    font-size: 2em;
+  }
+  
+  .TitleImage .titles p {
+    font-size: 0.7em;
+  }
 }

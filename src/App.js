@@ -5,11 +5,13 @@ import RaisedButton from 'material-ui/RaisedButton';
 import { grey900, deepOrange400 } from 'material-ui/styles/colors';
 
 import TitleImage from './TitleImage';
+import FullWidthImage from './FullWidthImage';
 import ContactForm from './ContactForm';
 import ThreeColumn from './ThreeColumn';
 import Footer from './Footer';
 import './App.css';
-import DocImage from './assets/kameratori_doc_fb_cover_eng.jpg';
+import TeamPhoto from './assets/team_01.jpg';
+import DocPhoto from './assets/doc_banner.png';
 
 // Create a theme for material-ui
 const muiTheme = getMuiTheme({
@@ -65,7 +67,15 @@ mechanical cameras for generations to come."
             />
           </div>
 
-          <img src={DocImage} alt="Kameratori 7 years. Watch the documentary" />
+          <FullWidthImage image={TeamPhoto}>
+            <a href="https://www.youtube.com/watch?v=KglgH5kPtkI">
+              <img
+                src={DocPhoto}
+                alt="Kameratori 7 years. Watch the documentary."
+                className="clickable"
+              />
+            </a>
+          </FullWidthImage>
 
           <div className="summary">
             <ThreeColumn
@@ -95,8 +105,8 @@ mechanical cameras for generations to come."
           <RaisedButton label="Repair a camera" primary onClick={this.addCamera} />
         </main>
 
-        <Footer>
-          <h3>Contact Information</h3>
+        <Footer className="Footer">
+          <h2>Contact Information</h2>
           <ul>
             <li>info@kameratori.com</li>
             <li>Kyttälänkatu 1, 33100 Tampere</li>
