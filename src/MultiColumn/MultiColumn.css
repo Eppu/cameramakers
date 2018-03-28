@@ -1,24 +1,24 @@
-.ThreeColumn {
+.MultiColumn {
   display: inline-block;
   vertical-align: top;
-  width: 33%;
 }
 
-.ThreeColumn h2 {
-  font-size: 1.7em;
-  font-weight: 500;
+.MultiColumn h2 {
   margin-bottom: 0;
 }
 
-.ThreeColumn .content {
+.MultiColumn .content {
   margin: 0.5em;
   padding: 0 1em;
+  line-height: 1.4em;
+  margin: 0.5em auto;
 }
 
 @media screen and (max-width: 700px) {
-  .ThreeColumn {
+  .MultiColumn {
     display: block;
     width: 100%;
     margin-bottom: 3em;
+    text-align: center;
   }
 }

@@ -2,13 +2,14 @@ import React from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import { grey900, deepOrange400 } from 'material-ui/styles/colors';
+import { RaisedButton } from 'material-ui';
 
 // Custom components
 import Avatar from './Avatar';
 import ContactForm from './ContactForm';
 import Footer from './Footer';
 import FullWidthImage from './FullWidthImage';
-import ThreeColumn from './ThreeColumn';
+import MultiColumn from './MultiColumn';
 import TitleImage from './TitleImage';
 
 // Assets
@@ -40,21 +41,27 @@ function App() {
           />
 
           <div className="summary">
-            <ThreeColumn
-              title="What is a cameramaker?"
-              text="A cameramaker is a craftsman dedicated to sharing knowledge and preserving
-  mechanical cameras for generations to come."
-            />
-            <ThreeColumn
-              title="What we do"
-              text="Specialty analog camera repairs, training programs for new talents, spare parts
-              &amp; repair knowledge collection."
-            />
-            <ThreeColumn
-              title="Who we are"
-              text="Cameramakers is a group of analog camera repair experts working under the roof
-              of the Nordic's #1 used camera shop Kameratori."
-            />
+            <MultiColumn columns={3}>
+              <h2>What is a cameramaker?</h2>
+              <p>
+                A cameramaker is a craftsman dedicated to sharing knowledge and preserving
+                mechanical cameras for generations to come.
+              </p>
+            </MultiColumn>
+            <MultiColumn columns={3}>
+              <h2>What we do</h2>
+              <p>
+                Specialty analog camera repairs, training programs for new talents, spare parts
+                &amp; repair knowledge collection.
+              </p>
+            </MultiColumn>
+            <MultiColumn columns={3}>
+              <h2>Who we are</h2>
+              <p>
+                Cameramakers is a group of analog camera repair experts working under the roof
+                of the Nordic&#39;s #1 used camera shop Kameratori.
+              </p>
+            </MultiColumn>
           </div>
 
           <FullWidthImage image={TeamPhoto}>
@@ -67,34 +74,92 @@ function App() {
             </a>
           </FullWidthImage>
 
-          <Avatar image={Mika} size={200} />
-          <Avatar image={Kimmo} size={200} />
-          <Avatar image={Jaakko} size={200} />
-          <Avatar image={Jukka} size={200} />
-
-          <div className="summary">
-            <ThreeColumn
-              title="Share knowledge"
-              text="Do you have any knowledge of repair documentation that might be valuable for
-              the preservation of a camera type?"
-              link="#"
-            />
-            <ThreeColumn
-              title="Provide spare parts"
-              text="Even broken or unwanted cameras are better in our hands than in the garbage!
-              We are constantly looking to grow our spare parts collection so that we can repair
-              cameras for decades to come."
-              link="#"
-            />
-            <ThreeColumn
-              title="Get a repair quote"
-              text="Cameramakers excels in specialty analog camera gear repairs and is currently
-              only taking on such tasks."
-              link="#"
-            />
+          <div className="summary" id="cameramakers">
+            <h2 className="sectionTitle">The Cameramakers</h2>
+            <MultiColumn columns={2} >
+              <Avatar image={Mika} size={200} />
+              <h3>Mika Parviainen</h3>
+              <div className="leftBorder">
+                <p className="left">Started at Kameratori as a service technician 8/2016</p>
+                <p className="left">
+                  Mika came to Kameratori from leading the Nikon and Canon official service center
+                  in Helsinki. He has been working servicing cameras for 14 years now and takes care
+                  of most of the AF stuff we have going through.
+                </p>
+              </div>
+            </MultiColumn>
+            <MultiColumn columns={2}>
+              <Avatar image={Kimmo} size={200} />
+              <h3>Kimmo Kujanpää</h3>
+              <div className="leftBorder">
+                <p className="left">Started at Kameratori as a service technician 10/2017</p>
+                <p className="left">
+                  Kimmo is the newest recruit to our service team. He is specialized in LF and
+                  TLR cameras.He also likes to tinker with electronic problems, as he is a fully
+                  qualified electrician and has been doing microelectronics for most of his career.
+                </p>
+              </div>
+            </MultiColumn>
+            <MultiColumn columns={2}>
+              <Avatar image={Jaakko} size={200} />
+              <h3>Jaakko Järvinen</h3>
+              <div className="leftBorder">
+                <p className="left">Started at Kameratori as a service technician 1/2017</p>
+                <p className="left">
+                  Jaakko is originally a watchmaker that graduated from the prestigious Finnish
+                  School of Watchmaking. With almost a decade of camera service experience he also
+                  benefited from having had the chance to study tricks under the instruction of the
+                  late Master Cameramaker Heikki Vatanen.
+                </p>
+              </div>
+            </MultiColumn>
+            <MultiColumn columns={2}>
+              <Avatar image={Jukka} size={200} />
+              <h3>Jukka Kelotie</h3>
+              <div className="leftBorder">
+                <p className="left">Started at Kameratori as a Master Cameramaker 10/2017</p>
+                <p className="left">
+                  Jukka was servicing high end mechanical cameras well before our founders were
+                  born. Schooled by the factories of Sinar, Mamiya and Konica + decades of
+                  experience at the importers service center for Leica, Linhof, Plaubel, Ricoh
+                  etc. Jukka is one of the few remaining original master cameramakers. We are
+                  glad to have him aboard passing his knowledge to the future generations through
+                  the Cameramakers team.
+                </p>
+              </div>
+            </MultiColumn>
           </div>
 
-          <ContactForm />
+
+          <div className="summary">
+            <h2 className="sectionTitle">I would like to...</h2>
+            <MultiColumn columns={3}>
+              <RaisedButton label="Share knowledge" primary href="#contact" />
+              <p>
+                Do you have any knowledge of repair documentation that might be valuable
+                for the preservation of a camera type?
+              </p>
+            </MultiColumn>
+            <MultiColumn columns={3}>
+              <RaisedButton label="Provide spare parts" primary href="#contact" />
+              <p>
+                Even broken or unwanted cameras are better in our hands than in the garbage!
+                We are constantly looking to grow our spare parts collection so that we can repair
+                cameras for decades to come.
+              </p>
+            </MultiColumn>
+            <MultiColumn columns={3}>
+              <RaisedButton label="Get a repair quote" primary href="#contact" />
+              <p>
+                Cameramakers excels in specialty analog camera gear repairs and is currently
+                only taking on such tasks.
+              </p>
+            </MultiColumn>
+          </div>
+
+          <div id="contact">
+            <ContactForm />
+          </div>
         </main>
 
         <Footer className="Footer">

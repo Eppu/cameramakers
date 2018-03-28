@@ -6,6 +6,7 @@ function Avatar(props) {
 
   const styles = {
     container: {
+      display: 'inline-block',
       width: `${size}px`,
       height: `${size}px`,
       overflow: 'hidden',
