@@ -1,9 +1,13 @@
 {
-  "main.css": "static/css/main.7cec2585.css",
-  "main.css.map": "static/css/main.7cec2585.css.map",
-  "main.js": "static/js/main.299412ef.js",
-  "main.js.map": "static/js/main.299412ef.js.map",
+  "main.css": "static/css/main.0e7744dc.css",
+  "main.css.map": "static/css/main.0e7744dc.css.map",
+  "main.js": "static/js/main.7a7a5ac6.js",
+  "main.js.map": "static/js/main.7a7a5ac6.js.map",
   "static/media/background_02_optimized.jpg": "static/media/background_02_optimized.89cfc3bf.jpg",
   "static/media/doc_banner.png": "static/media/doc_banner.09ecec1a.png",
+  "static/media/jaakko.jpg": "static/media/jaakko.69096481.jpg",
+  "static/media/jukka.jpg": "static/media/jukka.f256e1b9.jpg",
+  "static/media/kimmo.jpg": "static/media/kimmo.348c0040.jpg",
+  "static/media/mika.jpg": "static/media/mika.be63c4f2.jpg",
   "static/media/team_01.jpg": "static/media/team_01.7e940602.jpg"
 }
