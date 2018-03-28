@@ -14,11 +14,14 @@ import TitleImage from './TitleImage';
 
 // Assets
 import DocPhoto from './assets/doc_banner.png';
-import TeamPhoto from './assets/team_01.jpg';
+import FullLogo from './assets/cameramakers_logo_full_silver.svg';
 import Jaakko from './assets/jaakko.jpg';
+import Jennina from './assets/jennina.jpg';
 import Jukka from './assets/jukka.jpg';
 import Kimmo from './assets/kimmo.jpg';
+import Logo from './assets/cameramakers_logo.svg';
 import Mika from './assets/mika.jpg';
+import TeamPhoto from './assets/team_01.jpg';
 import './App.css';
 
 // Create a theme for material-ui
@@ -38,6 +41,8 @@ function App() {
           <TitleImage
             title="Cameramakers"
             subtitle="Cultivating knowledge. Preserving cameras."
+            logo={FullLogo}
+            cornerLogo={Logo}
           />
 
           <div className="summary">
@@ -64,23 +69,12 @@ function App() {
             </MultiColumn>
           </div>
 
-          <FullWidthImage image={TeamPhoto}>
-            <a href="https://www.youtube.com/watch?v=KglgH5kPtkI">
-              <img
-                src={DocPhoto}
-                alt="Kameratori 7 years. Watch the documentary."
-                className="clickable"
-              />
-            </a>
-          </FullWidthImage>
-
           <div className="summary" id="cameramakers">
             <h2 className="sectionTitle">The Cameramakers</h2>
             <MultiColumn columns={2} >
               <Avatar image={Mika} size={200} />
               <h3>Mika Parviainen</h3>
               <div className="leftBorder">
-                <p className="left">Started at Kameratori as a service technician 8/2016</p>
                 <p className="left">
                   Mika came to Kameratori from leading the Nikon and Canon official service center
                   in Helsinki. He has been working servicing cameras for 14 years now and takes care
@@ -92,7 +86,6 @@ function App() {
               <Avatar image={Kimmo} size={200} />
               <h3>Kimmo Kujanpää</h3>
               <div className="leftBorder">
-                <p className="left">Started at Kameratori as a service technician 10/2017</p>
                 <p className="left">
                   Kimmo is the newest recruit to our service team. He is specialized in LF and
                   TLR cameras.He also likes to tinker with electronic problems, as he is a fully
@@ -104,7 +97,6 @@ function App() {
               <Avatar image={Jaakko} size={200} />
               <h3>Jaakko Järvinen</h3>
               <div className="leftBorder">
-                <p className="left">Started at Kameratori as a service technician 1/2017</p>
                 <p className="left">
                   Jaakko is originally a watchmaker that graduated from the prestigious Finnish
                   School of Watchmaking. With almost a decade of camera service experience he also
@@ -117,7 +109,6 @@ function App() {
               <Avatar image={Jukka} size={200} />
               <h3>Jukka Kelotie</h3>
               <div className="leftBorder">
-                <p className="left">Started at Kameratori as a Master Cameramaker 10/2017</p>
                 <p className="left">
                   Jukka was servicing high end mechanical cameras well before our founders were
                   born. Schooled by the factories of Sinar, Mamiya and Konica + decades of
@@ -128,10 +119,32 @@ function App() {
                 </p>
               </div>
             </MultiColumn>
+            <MultiColumn columns={2}>
+              <Avatar image={Jennina} size={200} />
+              <h3>Jennina Terho</h3>
+              <div className="leftBorder">
+                <p className="left">
+                  Jennina is the soul of our Helsinki office. Central location brings a lot of
+                  foot traffic and queries thru the door, but Jennina keeps the storefront and
+                  customers well in order. Jennina also co-ordinates the newly formed @cameramakers
+                  Instagram and in the future also manages the international service queries once
+                  Cameramakers gets that side ready for action.
+                </p>
+              </div>
+            </MultiColumn>
           </div>
 
+          <FullWidthImage image={TeamPhoto}>
+            <a href="https://www.youtube.com/watch?v=KglgH5kPtkI">
+              <img
+                src={DocPhoto}
+                alt="Kameratori 7 years. Watch the documentary."
+                className="clickable"
+              />
+            </a>
+          </FullWidthImage>
 
-          <div className="summary">
+          <div className="summary" id="action">
             <h2 className="sectionTitle">I would like to...</h2>
             <MultiColumn columns={3}>
               <RaisedButton label="Share knowledge" primary href="#contact" />

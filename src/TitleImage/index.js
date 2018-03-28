@@ -1,14 +1,24 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import Header from './Header';
+
 import './TitleImage.css';
 
 function TitleImage(props) {
+  const {
+    title,
+    subtitle,
+    logo,
+    cornerLogo,
+  } = props;
+
   return (
     <div className="TitleImage">
+      <Header logo={cornerLogo} />
       <div className="titles">
-        <h1>{props.title}</h1>
-        <p>{props.subtitle}</p>
+        {title ? <h1>{title}</h1> : <img src={logo} alt="Cameramakers" className="mainLogo" />}
+        <p>{subtitle}</p>
       </div>
     </div>
   );
@@ -17,13 +27,15 @@ function TitleImage(props) {
 TitleImage.propTypes = {
   title: PropTypes.string,
   subtitle: PropTypes.string,
-  // image: PropTypes.element,
+  logo: PropTypes.string,
+  cornerLogo: PropTypes.string,
 };
 
 TitleImage.defaultProps = {
-  title: 'title prop text',
+  title: '',
   subtitle: 'subtitle prop text',
-  // image: null,
+  logo: '',
+  cornerLogo: '',
 };
 
 export default TitleImage;

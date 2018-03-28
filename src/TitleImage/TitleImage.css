@@ -12,6 +12,11 @@
   -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='./assets/background_01.jpg', sizingMethod='scale')";
 }
 
+.TitleImage img.mainLogo {
+  width: 50%;
+  filter: brightness(2);
+}
+
 .TitleImage .titles {
   width: 100%;
   position: absolute;
