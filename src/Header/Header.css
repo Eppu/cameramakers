@@ -1,7 +1,9 @@
 .Header {
+  z-index: 1;
   background-color: #DCAC46;
   margin: 0;
   padding: 0.2em 0.5em;
+  position: relative;
 }
 
 .Header .content {
@@ -30,7 +32,11 @@
   margin-left: 1em;
 }
 
-a, a:visited, a:active, a:hover, a:focus {
+.Header a,
+.Header a:visited,
+.Header a:active,
+.Header a:hover,
+.Header a:focus {
   color: inherit;
   text-decoration: none;
   border-bottom: 1px solid #212121;
@@ -39,14 +45,34 @@ a, a:visited, a:active, a:hover, a:focus {
   transition-timing-function: ease-out;
 }
 
-a, a:visited {
-  padding-bottom: 0.3em;
+.Header a, .Header a:visited {
+  padding-bottom: 0.1em;
   color: #212121;
   border-color: #212121;
 }
 
-a:active, a:hover, a:focus {
-  padding-bottom: 0.5em;
+.Header a:active,
+.Header a:hover,
+.Header a:focus {
+  padding-bottom: 0.3em;
   color: white;
   border-color: white;
+}
+
+@media screen and (max-width: 700px) {
+  .Header {
+    padding-bottom: 0.5em;
+  }
+
+  .Header ul,
+  .Header ul li,
+  .Header img.logo {
+    display: block;
+    margin: 0.5em auto;
+  }
+
+  .Header ul li:nth-of-type(n) {
+    margin: 0.5em auto;
+    text-align: center;
+  }
 }

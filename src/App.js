@@ -9,12 +9,13 @@ import Avatar from './Avatar';
 import ContactForm from './ContactForm';
 import Footer from './Footer';
 import FullWidthImage from './FullWidthImage';
+import Header from './Header';
 import MultiColumn from './MultiColumn';
 import TitleImage from './TitleImage';
 
 // Assets
 import DocPhoto from './assets/doc_banner.png';
-import FullLogo from './assets/cameramakers_logo_full_silver.svg';
+import FullLogo from './assets/cameramakers_logo_full.svg';
 import Jaakko from './assets/jaakko.jpg';
 import Jennina from './assets/jennina.jpg';
 import Jukka from './assets/jukka.jpg';
@@ -38,6 +39,7 @@ function App() {
     <MuiThemeProvider muiTheme={muiTheme}>
       <div>
         <main className="center">
+          <Header smallLogo={Logo} bigLogo={FullLogo} />
           <TitleImage
             title="Cameramakers"
             subtitle="Cultivating knowledge. Preserving cameras."

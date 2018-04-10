@@ -39,7 +39,7 @@ class MultiColumn extends React.Component {
         break;
     }
 
-    if (this.state.width < 700) {
+    if (this.state.width <= 700) {
       width = '100%';
     }
 

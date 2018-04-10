@@ -1,8 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import Header from './Header';
-
 import './TitleImage.css';
 
 function TitleImage(props) {
@@ -10,12 +8,10 @@ function TitleImage(props) {
     title,
     subtitle,
     logo,
-    cornerLogo,
   } = props;
 
   return (
     <div className="TitleImage">
-      <Header logo={cornerLogo} />
       <div className="titles">
         {title ? <h1>{title}</h1> : <img src={logo} alt="Cameramakers" className="mainLogo" />}
         <p>{subtitle}</p>
