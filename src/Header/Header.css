@@ -1,12 +1,21 @@
 .Header {
+  position: relative;
   z-index: 1;
   background-color: #DCAC46;
   margin: 0;
-  padding: 0.2em 0.5em;
-  position: relative;
+}
+
+.Header .expandTrigger {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  line-height: 0;
 }
 
 .Header .content {
+  padding: 0.2em 0.5em;
   text-align: left;
 }
 

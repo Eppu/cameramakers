@@ -84,28 +84,33 @@ class Header extends React.Component {
     const rotation = this.state.open ? '180deg' : 0;
 
     let height;
-    if (this.state.width > 700) height = 50;
+    if (this.state.width > 700) height = 56;
     else height = this.state.open ? 195 : 15;
 
     return (
       <div>
         <AnimateHeight
-          duration={300}
+          duration={500}
           height={height}
           className="Header"
           onAnimationEnd={animEnd}
           onAnimationStart={animStart}
+          animateOpacity
         >
           {content}
           {this.state.width <= 700 ?
-            <ExpandIcon
-              style={{
-                position: 'absolute', bottom: 0, left: '50%', transform: `translateX(-50%) rotate(${rotation})`, zIndex: 9,
-              }}
+            <div
+              className="expandTrigger"
               onClick={() => {
                 this.setState({ ...this.state, open: !this.state.open });
               }}
-            />
+            >
+              <ExpandIcon
+                style={{
+                  display: 'inline-block', transform: `rotate(${rotation})`,
+                }}
+              />
+            </div>
             : null
           }
         </AnimateHeight>
