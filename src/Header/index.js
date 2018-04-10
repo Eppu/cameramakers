@@ -25,22 +25,6 @@ class Header extends React.Component {
     this.setState({ width: window.innerWidth });
   }
 
-  /**
-   *  CLOSED
-   *    Content:
-   *      - Expand icon
-   *    On animation start:
-   *      - Add menu content
-   *
-   *  OPEN
-   *    Content:
-   *      - Menu content
-   *      - Expand icon
-   *    On animation end:
-   *      - Remove menu content
-   */
-
-
   render() {
     // Use the correct logo based on page width
     let logo;
@@ -50,9 +34,10 @@ class Header extends React.Component {
       logo = this.props.bigLogo;
     }
 
+    // Hide content when menu is closed.
     let content;
     if (this.state.width > 700 || this.state.contentVisible) {
-      // Menu content
+      // Menu is open or screen is large so we show the content
       content = (
         <div className="content">
           <img src={logo} alt="Cameramakers" className="logo" />
@@ -65,6 +50,7 @@ class Header extends React.Component {
         </div>
       );
     } else {
+      // Menu is closed. Hide content.
       content = null;
     }
 
@@ -81,8 +67,10 @@ class Header extends React.Component {
       animEnd = () => this.setState({ ...this.state, contentVisible: false });
     }
 
+    // How to rotate the expand button
     const rotation = this.state.open ? '180deg' : 0;
 
+    // Define header height based on screen width and open state
     let height;
     if (this.state.width > 700) height = 56;
     else height = this.state.open ? 195 : 15;
@@ -99,7 +87,7 @@ class Header extends React.Component {
         >
           {content}
           {this.state.width <= 700 ?
-            <div
+            <button
               className="expandTrigger"
               onClick={() => {
                 this.setState({ ...this.state, open: !this.state.open });
@@ -110,11 +98,10 @@ class Header extends React.Component {
                   display: 'inline-block', transform: `rotate(${rotation})`,
                 }}
               />
-            </div>
+            </button>
             : null
           }
         </AnimateHeight>
-
       </div>
     );
   }

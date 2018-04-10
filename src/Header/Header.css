@@ -8,10 +8,28 @@
 .Header .expandTrigger {
   position: absolute;
   bottom: 0;
-  width: 100%;
   margin: 0;
   padding: 0;
   line-height: 0;
+  display: block;
+  width: 100%;
+}
+
+.Header button,
+.Header input[type="submit"],
+.Header input[type="reset"] {
+    background: none;
+    color: inherit;
+    border: none;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
+}
+
+.Header button:active,
+.Header button:focus {
+  background-color: rgb(214, 157, 33);
 }
 
 .Header .content {
