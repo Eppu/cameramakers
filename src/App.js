@@ -11,6 +11,7 @@ import Footer from './Footer';
 import FullWidthImage from './FullWidthImage';
 import Header from './Header';
 import MultiColumn from './MultiColumn';
+import Shelf from './Shelf';
 import TitleImage from './TitleImage';
 
 // Assets
@@ -70,6 +71,8 @@ function App() {
               </p>
             </MultiColumn>
           </div>
+
+          <Shelf images={[Jaakko, Jennina, Jukka, Kimmo, Mika]} />
 
           <div className="summary" id="cameramakers">
             <h2 className="sectionTitle">The Cameramakers</h2>
