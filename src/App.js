@@ -72,7 +72,7 @@ function App() {
             </MultiColumn>
           </div>
 
-          <Shelf images={[Jaakko, Jennina, Jukka, Kimmo, Mika]} />
+          <Shelf images={[Jaakko, Jennina, Jukka, Kimmo, Mika]} height={600} />
 
           <div className="summary" id="cameramakers">
             <h2 className="sectionTitle">The Cameramakers</h2>
