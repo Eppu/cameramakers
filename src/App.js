@@ -3,6 +3,8 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import { grey900, deepOrange400 } from 'material-ui/styles/colors';
 import { RaisedButton } from 'material-ui';
+import sizeMe from 'react-sizeme';
+import PropTypes from 'prop-types';
 
 // Custom components
 import Avatar from './Avatar';
@@ -35,7 +37,11 @@ const muiTheme = getMuiTheme({
   },
 });
 
-function App() {
+function App(props) {
+  const { width } = props.size;
+  let shelfHeight = 300;
+  if (width > 700) shelfHeight = 600;
+
   return (
     <MuiThemeProvider muiTheme={muiTheme}>
       <div>
@@ -72,7 +78,7 @@ function App() {
             </MultiColumn>
           </div>
 
-          <Shelf images={[Jaakko, Jennina, Jukka, Kimmo, Mika]} height={600} />
+          <Shelf images={[Jaakko, Jennina, Jukka, Kimmo, Mika]} height={shelfHeight} />
 
           <div className="summary" id="cameramakers">
             <h2 className="sectionTitle">The Cameramakers</h2>
@@ -193,4 +199,21 @@ function App() {
   );
 }
 
-export default App;
+App.propTypes = {
+  size: PropTypes.shape({
+    width: PropTypes.number,
+    height: PropTypes.number,
+    position: PropTypes.shape({
+      left: PropTypes.number,
+      top: PropTypes.number,
+      right: PropTypes.number,
+      bottom: PropTypes.number,
+    }),
+  }),
+};
+
+App.defaultProps = {
+  size: { width: 0 },
+};
+
+export default sizeMe()(App);
