@@ -38,9 +38,15 @@ const muiTheme = getMuiTheme({
 });
 
 function App(props) {
+  console.log(props);
+
   const { width } = props.size;
-  let shelfHeight = 300;
-  if (width > 700) shelfHeight = 600;
+
+  let shelfHeight = 100;
+  if (width > 400) shelfHeight = 200;
+  if (width > 700) shelfHeight = 500;
+
+  console.log(width, shelfHeight);
 
   return (
     <MuiThemeProvider muiTheme={muiTheme}>

@@ -17,8 +17,6 @@ function ShelfItem(props) {
     },
   };
 
-  console.log(height);
-
   return (
     <div
       className="ShelfItem"
