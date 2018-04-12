@@ -2,7 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 function ShelfItem(props) {
-  const { background, width, height } = props;
+  const { background, width, height, isActive } = props;
+  const brightness = isActive ? 1 : 0.5;
 
   const styles = {
     shelfItem: {
@@ -11,7 +12,8 @@ function ShelfItem(props) {
       backgroundSize: `${height}px auto`,
       width: `${width}px`,
       height: '100%',
-      transitionProperty: 'width, background-size',
+      filter: `brightness(${brightness})`,
+      transitionProperty: 'width, background-size, filter',
       transitionDuration: '0.3s',
       transitionTimingFunction: 'ease-out',
     },
@@ -31,6 +33,7 @@ ShelfItem.propTypes = {
   width: PropTypes.number,
   height: PropTypes.number,
   onClick: PropTypes.func,
+  isActive: PropTypes.bool,
 };
 
 ShelfItem.defaultProps = {
@@ -38,6 +41,7 @@ ShelfItem.defaultProps = {
   width: 0,
   height: 0,
   onClick: () => console.log('clicked'),
+  isActive: false,
 };
 
 export default ShelfItem;

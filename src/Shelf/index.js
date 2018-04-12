@@ -86,6 +86,7 @@ class Shelf extends React.Component {
           background={images[i]}
           width={itemWidth}
           height={height}
+          isActive={i === selected}
           onClick={() => this.handleSelect(i)}
         />
       );
