@@ -2,14 +2,19 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 function ShelfItem(props) {
-  const { background, width, bgWidth, isActive } = props;
+  const {
+    background,
+    width,
+    backgroundWidth,
+    isActive,
+  } = props;
   const brightness = isActive ? 1 : 0.5;
 
   const styles = {
     shelfItem: {
       display: 'inline-block',
       background: `url(${background}) center center no-repeat`,
-      backgroundSize: `${bgWidth}px auto`,
+      backgroundSize: `${backgroundWidth}px auto`,
       width: `${width}px`,
       height: '100%',
       filter: `brightness(${brightness})`,
@@ -31,7 +36,7 @@ function ShelfItem(props) {
 ShelfItem.propTypes = {
   background: PropTypes.string,
   width: PropTypes.number,
-  bgWidth: PropTypes.number,
+  backgroundWidth: PropTypes.number,
   onClick: PropTypes.func,
   isActive: PropTypes.bool,
 };
@@ -39,7 +44,7 @@ ShelfItem.propTypes = {
 ShelfItem.defaultProps = {
   background: '',
   width: 0,
-  bgWidth: 0,
+  backgroundWidth: 0,
   onClick: () => console.log('clicked'),
   isActive: false,
 };
