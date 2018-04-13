@@ -57,8 +57,20 @@ class Shelf extends React.Component {
         height: `${height}px`,
         width: '100%',
         overflow: 'hidden',
+        marginLeft: 'auto',
+        marginRight: 'auto',
+        // maxWidth: '1920px',
       },
     };
+
+    /**
+     * On larger screens where ShelfItems don't fill the entire screen, adjust
+     * ShelfItem backgrounds to be larger than the given height
+     */
+    let bgWidth = height;
+    if (width > height * images.length) {
+      bgWidth *= 1.2 * (width / (height * images.length));
+    }
 
     // Create ShelfItems whose backgrounds are the images
     const shelfItems = [];
@@ -69,10 +81,10 @@ class Shelf extends React.Component {
         // Something is selected
         if (i === selected) {
           // Current element is selected. Set width to height.
-          itemWidth = height;
+          itemWidth = bgWidth;
         } else {
           // Current element is not selected. Set width accordingly.
-          itemWidth = Math.floor((width - height) / (images.length - 1));
+          itemWidth = Math.floor((width - bgWidth) / (images.length - 1));
         }
       } else {
         // No elements are selected. Make all widths equal
@@ -85,7 +97,7 @@ class Shelf extends React.Component {
           key={i}
           background={images[i]}
           width={itemWidth}
-          height={height}
+          bgWidth={bgWidth}
           isActive={i === selected}
           onClick={() => this.handleSelect(i)}
         />
