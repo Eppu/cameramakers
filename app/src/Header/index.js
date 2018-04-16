@@ -43,9 +43,9 @@ class Header extends React.Component {
           <img src={logo} alt="Cameramakers" className="logo" />
           <ul>
             <li>I would like to...</li>
-            <li><a href="#action">Share knowledge</a></li>
-            <li><a href="#action">Provide spare parts</a></li>
-            <li><a href="#action">Get a repair quote</a></li>
+            <li><a href="#contact">Share knowledge</a></li>
+            <li><a href="#contact">Provide spare parts</a></li>
+            <li><a href="#contact">Get a repair quote</a></li>
           </ul>
         </div>
       );

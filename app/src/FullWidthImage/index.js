@@ -9,7 +9,8 @@ function FullWidthImage(props) {
   return (
     <div
       style={{
-        background: `url(${image}) no-repeat center center`,
+        background: `url(${image}) no-repeat`,
+        backgroundPosition: '37% 25%',
         WebkitBackgroundSize: 'cover',
         MozBackgroundSize: 'cover',
         OBackgroundSize: 'cover',

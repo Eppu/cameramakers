@@ -21,6 +21,7 @@ function ShelfItem(props) {
       transitionProperty: 'width, background-size, filter',
       transitionDuration: '0.3s',
       transitionTimingFunction: 'ease-out',
+      cursor: 'pointer',
     },
   };
 

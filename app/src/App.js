@@ -1,5 +1,6 @@
 import React from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import GA from 'react-ga';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import { grey900, deepOrange400 } from 'material-ui/styles/colors';
 import { RaisedButton } from 'material-ui';
@@ -43,6 +44,10 @@ class App extends React.Component {
       shelfSelected: Math.floor(Math.random() * 5),
     };
     this.handleShelfSelect = this.handleShelfSelect.bind(this);
+
+    // Initialize Google Analytics and send a pageview.
+    GA.initialize('UA-54570195-6');
+    GA.pageview(window.location.pathname + window.location.search);
   }
 
 
@@ -51,11 +56,26 @@ class App extends React.Component {
    * @param {number} selected Index of selected ShelfItem
    */
   handleShelfSelect(shelfSelected) {
-    console.log('Selected ', shelfSelected);
     this.setState({
       ...this.state,
       shelfSelected,
     });
+
+    // Which cameramaker was clicked?
+    const cameramakers = ['Mika', 'Kimmo', 'Jaakko', 'Jukka', 'Jennina'];
+    // Send an analytics event
+    if (cameramakers[shelfSelected]) {
+      GA.event({
+        category: 'Main',
+        action: 'Select Cameramaker',
+        label: cameramakers[shelfSelected],
+      });
+    } else {
+      GA.event({
+        category: 'Main',
+        action: 'Select Cameramaker',
+      });
+    }
   }
 
 
@@ -120,9 +140,10 @@ class App extends React.Component {
             <h3>Jukka Kelotie</h3>
             <div className="leftBorder">
               <p className="left">
-                Jukka was servicing high end mechanical cameras well before our founders were
-                born. Schooled by the factories of Sinar, Mamiya and Konica + decades of
-                experience at the importers service center for Leica, Linhof, Plaubel, Ricoh
+                Jukka has been servicing high end mechanical cameras so long, that he remembers
+                when AF was a new thing. Schooled by the factories of Sinar, Mamiya and Konica
+                + decades of experience at the importers service center for Leica, Linhof, Plaubel,
+                Ricoh
                 etc. Jukka is one of the few remaining original master cameramakers. We are
                 glad to have him aboard passing his knowledge to the future generations through
                 the Cameramakers team.
@@ -189,10 +210,6 @@ class App extends React.Component {
               </MultiColumn>
             </div>
 
-            <div className="summary" id="cameramakers">
-              <h2 className="sectionTitle">The Cameramakers</h2>
-            </div>
-
             <Shelf
               images={[Mika, Kimmo, Jaakko, Jukka, Jennina]}
               height={shelfHeight}
@@ -207,6 +224,7 @@ class App extends React.Component {
             </div>
 
             <FullWidthImage image={TeamPhoto}>
+              <p>A brief history about our parent company in Finland</p>
               <a href="https://www.youtube.com/watch?v=KglgH5kPtkI">
                 <img
                   src={DocPhoto}
