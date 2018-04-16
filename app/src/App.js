@@ -7,7 +7,6 @@ import sizeMe from 'react-sizeme';
 import PropTypes from 'prop-types';
 
 // Custom components
-import Avatar from './Avatar';
 import ContactForm from './ContactForm';
 import Footer from './Footer';
 import FullWidthImage from './FullWidthImage';
