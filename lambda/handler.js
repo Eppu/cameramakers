@@ -31,7 +31,7 @@ function sendEmail(event, done) {
   // done();
 }
 
-function ContactForm(event, context, callback) {
+function contactForm(event, context, callback) {
   console.log('Received event:', event);
 
   sendEmail(event, (err) => {
@@ -51,5 +51,5 @@ function ContactForm(event, context, callback) {
 
 
 module.exports = {
-  ContactForm,
+  contactForm,
 };
