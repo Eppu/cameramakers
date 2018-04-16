@@ -233,13 +233,16 @@ class ContactForm extends React.Component {
     }
 
     // Debug function for testing sending message behaviour
-    const response = Math.random() > 0.5 ?
-      { status: 'ok' } :
-      { status: 'error', error: 'This is a dummy error that intentionally occurs 50% of the time' };
+    // const response = Math.random() > 0.5 ?
+    //   { status: 'ok' } :
+    //   {
+    //     status: 'error',
+    //     error: 'This is a dummy error that intentionally occurs 50% of the time',
+    //   };
 
-    return setTimeout(() => {
-      this.setState({ ...newState, response, isSending: false });
-    }, 2000);
+    // return setTimeout(() => {
+    //   this.setState({ ...newState, response, isSending: false });
+    // }, 2000);
 
     // Send email
     sendMail(formData)

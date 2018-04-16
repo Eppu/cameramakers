@@ -1,5 +1,5 @@
 function sendMail(formState) {
-  return fetch('https://hj8jn2gu90.execute-api.eu-west-1.amazonaws.com/v1a', {
+  return fetch('https://edotornoee.execute-api.eu-west-1.amazonaws.com/dev/contactForm', {
     method: 'POST',
     headers: new Headers({
       'content-type': 'application/json',
