@@ -39,6 +39,19 @@ const muiTheme = getMuiTheme({
 });
 
 class App extends React.Component {
+  /**
+   * Sends analytics events to Google Analytics
+   * @param {object} event Analytics event to send
+   */
+  static analyticsEvent(event) {
+    if (event) {
+      GA.event(event);
+      return true;
+    }
+    return false;
+  }
+
+
   constructor(props) {
     super(props);
     this.state = {
@@ -71,7 +84,7 @@ class App extends React.Component {
       action: 'Select Cameramaker',
       label,
     };
-    GA.event(event);
+    App.analyticsEvent(event);
   }
 
 
@@ -177,7 +190,7 @@ class App extends React.Component {
       <MuiThemeProvider muiTheme={muiTheme}>
         <div>
           <main className="center">
-            <Header smallLogo={Logo} bigLogo={FullLogoBlack} />
+            <Header smallLogo={Logo} bigLogo={FullLogoBlack} isDesktop={isDesktop} analytics={App.analyticsEvent} />
             <TitleImage
               // title="Cameramakers"
               subtitle="Cultivating knowledge. Preserving cameras."

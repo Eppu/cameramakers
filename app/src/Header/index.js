@@ -10,6 +10,7 @@ class Header extends React.Component {
     super(props);
     this.state = { width: 0, open: false, contentVisible: false };
     this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
   componentDidMount() {
@@ -25,10 +26,21 @@ class Header extends React.Component {
     this.setState({ width: window.innerWidth });
   }
 
+  handleClick(label) {
+    const event = {
+      category: 'Header',
+      action: 'Select header item',
+      label,
+    };
+    this.props.analytics(event);
+  }
+
   render() {
+    const { isDesktop } = this.props;
+
     // Use the correct logo based on page width
     let logo;
-    if (this.state.width > 700) {
+    if (isDesktop) {
       logo = this.props.smallLogo;
     } else {
       logo = this.props.bigLogo;
@@ -36,16 +48,16 @@ class Header extends React.Component {
 
     // Hide content when menu is closed.
     let content;
-    if (this.state.width > 700 || this.state.contentVisible) {
+    if (isDesktop || this.state.contentVisible) {
       // Menu is open or screen is large so we show the content
       content = (
         <div className="content">
           <img src={logo} alt="Cameramakers" className="logo" />
           <ul>
             <li>I would like to...</li>
-            <li><a href="#contact">Share knowledge</a></li>
-            <li><a href="#contact">Provide spare parts</a></li>
-            <li><a href="#contact">Get a repair quote</a></li>
+            <li><a href="#contact" onClick={() => this.handleClick('Share knowledge')}>Share knowledge</a></li>
+            <li><a href="#contact" onClick={() => this.handleClick('Provide spare parts')}>Provide spare parts</a></li>
+            <li><a href="#contact" onClick={() => this.handleClick('Get a repair quote')}>Get a repair quote</a></li>
           </ul>
         </div>
       );
@@ -72,7 +84,7 @@ class Header extends React.Component {
 
     // Define header height based on screen width and open state
     let height;
-    if (this.state.width > 700) height = 58;
+    if (isDesktop) height = 58;
     else height = this.state.open ? 200 : 15;
 
     return (
@@ -86,7 +98,7 @@ class Header extends React.Component {
           animateOpacity
         >
           {content}
-          {this.state.width <= 700 ?
+          {!isDesktop ?
             <button
               className="expandTrigger"
               onClick={() => {
@@ -108,13 +120,17 @@ class Header extends React.Component {
 }
 
 Header.propTypes = {
+  analytics: PropTypes.func,
   smallLogo: PropTypes.string,
   bigLogo: PropTypes.string,
+  isDesktop: PropTypes.bool,
 };
 
 Header.defaultProps = {
+  analytics: null,
   smallLogo: '',
   bigLogo: '',
+  isDesktop: false,
 };
 
 export default Header;
