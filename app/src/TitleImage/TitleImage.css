@@ -14,7 +14,6 @@
 
 .TitleImage img.mainLogo {
   width: 50%;
-  filter: brightness(2);
 }
 
 .TitleImage .titles {
@@ -40,9 +39,19 @@
   font-weight: 600;
 }
 
+@media screen and (max-width: 1200px) {
+  .TitleImage img.mainLogo {
+    width: 70%;
+  }
+}
+
 @media screen and (max-width: 700px) {
   .TitleImage {
     min-height: 500px;
+  }
+
+  .TitleImage img.mainLogo {
+    width: 80%;
   }
 
   .TitleImage .titles h1 {
@@ -57,6 +66,10 @@
 @media screen and (max-width: 400px) {
   .TitleImage {
     min-height: 300px;
+  }
+
+  .TitleImage img.mainLogo {
+    width: 95%;
   }
 
   .TitleImage .titles h1 {

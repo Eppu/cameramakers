@@ -175,7 +175,7 @@ class App extends React.Component {
           <main className="center">
             <Header smallLogo={Logo} bigLogo={FullLogo} />
             <TitleImage
-              title="Cameramakers"
+              // title="Cameramakers"
               subtitle="Cultivating knowledge. Preserving cameras."
               logo={FullLogo}
               cornerLogo={Logo}
