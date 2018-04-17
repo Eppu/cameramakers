@@ -1,9 +1,8 @@
 {
-  "main.css": "static/css/main.a45ad634.css",
-  "main.css.map": "static/css/main.a45ad634.css.map",
-  "main.js": "static/js/main.5ae6ab04.js",
-  "main.js.map": "static/js/main.5ae6ab04.js.map",
-  "static/media/background_02_optimized.jpg": "static/media/background_02_optimized.89cfc3bf.jpg",
+  "main.css": "static/css/main.721a4641.css",
+  "main.css.map": "static/css/main.721a4641.css.map",
+  "main.js": "static/js/main.2de71d60.js",
+  "main.js.map": "static/js/main.2de71d60.js.map",
   "static/media/cameramakers_logo.svg": "static/media/cameramakers_logo.c8383da3.svg",
   "static/media/cameramakers_logo_full.svg": "static/media/cameramakers_logo_full.e30329e2.svg",
   "static/media/doc_banner.png": "static/media/doc_banner.09ecec1a.png",
@@ -11,6 +10,7 @@
   "static/media/jennina.jpg": "static/media/jennina.79a3d049.jpg",
   "static/media/jukka.jpg": "static/media/jukka.f256e1b9.jpg",
   "static/media/kimmo.jpg": "static/media/kimmo.348c0040.jpg",
+  "static/media/mainImage.jpg": "static/media/mainImage.6f1fe2d7.jpg",
   "static/media/mika.jpg": "static/media/mika.be63c4f2.jpg",
   "static/media/team_01.jpg": "static/media/team_01.7e940602.jpg"
 }
