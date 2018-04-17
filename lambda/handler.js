@@ -2,8 +2,8 @@ const AWS = require('aws-sdk');
 
 const ses = new AWS.SES();
 
-const RECEIVERS = ['misa.jokisalo@toriverkosto.fi'];
-const SENDER = 'misa.jokisalo@toriverkosto.fi'; // make sure that the sender email is properly set up in your Amazon SES
+const RECEIVERS = ['info@cameramakers.com'];
+const SENDER = 'info@cameramakers.com'; // make sure that the sender email is properly set up in your Amazon SES
 
 function sendEmail(event, done) {
   const data = JSON.parse(event.body);
