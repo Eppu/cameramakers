@@ -90,7 +90,6 @@ ShelfItem.propTypes = {
   width: PropTypes.number,
   backgroundWidth: PropTypes.number,
   onClick: PropTypes.func,
-  onKeyPress: PropTypes.func,
   isActive: PropTypes.bool,
 };
 
@@ -99,7 +98,6 @@ ShelfItem.defaultProps = {
   width: 0,
   backgroundWidth: 0,
   onClick: null,
-  onKeyPress: () => console.log('[ShelfItem] keypress'),
   isActive: false,
 };
 

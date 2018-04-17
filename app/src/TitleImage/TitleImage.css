@@ -3,13 +3,13 @@
   background-size: cover;
   min-height: 700px;
 
-  background: url('../assets/mainImage.jpg') no-repeat center center;
+  background: url('../assets/img/mainImage.jpg') no-repeat center center;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='./assets/mainImage.jpg', sizingMethod='scale');
-  -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='./assets/mainImage.jpg', sizingMethod='scale')";
+  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='./assets/img/mainImage.jpg', sizingMethod='scale');
+  -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='./assets/img/mainImage.jpg', sizingMethod='scale')";
 }
 
 .TitleImage img.mainLogo {

@@ -17,15 +17,15 @@ import Shelf from './Shelf';
 import TitleImage from './TitleImage';
 
 // Assets
-import DocPhoto from './assets/doc_banner.png';
-import FullLogo from './assets/cameramakers_logo_full.svg';
-import Jaakko from './assets/jaakko.jpg';
-import Jennina from './assets/jennina.jpg';
-import Jukka from './assets/jukka.jpg';
-import Kimmo from './assets/kimmo.jpg';
-import Logo from './assets/cameramakers_logo.svg';
-import Mika from './assets/mika.jpg';
-import TeamPhoto from './assets/team_01.jpg';
+import DocPhoto from './assets/img/doc_banner.png';
+import FullLogo from './assets/img/logo/gold/CM_Basic_Gold_Rgb.svg';
+import Jaakko from './assets/img/team/jaakko.jpg';
+import Jennina from './assets/img/team/jennina.jpg';
+import Jukka from './assets/img/team/jukka.jpg';
+import Kimmo from './assets/img/team/kimmo.jpg';
+import Logo from './assets/img/logo/black/CM_ID_Black_Rgb.svg';
+import Mika from './assets/img/team/mika.jpg';
+import TeamPhoto from './assets/img/team/team_01.jpg';
 import './App.css';
 
 // Create a theme for material-ui
@@ -263,9 +263,11 @@ class App extends React.Component {
           <Footer className="Footer">
             <h2>Contact Information</h2>
             <ul>
-              <li>info@kameratori.com</li>
+              <li>info@cameramakers.com</li>
               <li>Kyttälänkatu 1, 33100 Tampere</li>
-              <li>010 2311777520</li>
+              <li>+358 10 2311 7700</li>
+              <li>Runeberginkatu 2, 00100 Helsinki</li>
+              <li>+358 10 2311 7701</li>
             </ul>
           </Footer>
         </div>

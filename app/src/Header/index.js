@@ -72,8 +72,8 @@ class Header extends React.Component {
 
     // Define header height based on screen width and open state
     let height;
-    if (this.state.width > 700) height = 56;
-    else height = this.state.open ? 195 : 15;
+    if (this.state.width > 700) height = 58;
+    else height = this.state.open ? 200 : 15;
 
     return (
       <div>

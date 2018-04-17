@@ -232,7 +232,10 @@ class ContactForm extends React.Component {
       }
     }
 
-    // Debug function for testing sending message behaviour
+    /**
+     * Debug function for testing sending message behaviour.
+     * Makes message submission randomly succeed or fail after 2 seconds.
+     */
     // const response = Math.random() > 0.5 ?
     //   { status: 'ok' } :
     //   {
