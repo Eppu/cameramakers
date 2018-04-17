@@ -18,7 +18,8 @@ import TitleImage from './TitleImage';
 
 // Assets
 import DocPhoto from './assets/img/doc_banner.png';
-import FullLogo from './assets/img/logo/gold/CM_Basic_Gold_Rgb.svg';
+import FullLogoBlack from './assets/img/logo/black/CM_Basic_Black_Rgb.svg';
+import FullLogoGold from './assets/img/logo/gold/CM_Basic_Gold_Rgb.svg';
 import Jaakko from './assets/img/team/jaakko.jpg';
 import Jennina from './assets/img/team/jennina.jpg';
 import Jukka from './assets/img/team/jukka.jpg';
@@ -78,9 +79,12 @@ class App extends React.Component {
     const { shelfSelected } = this.state;
     const { width } = this.props.size;
 
+    const isDesktop = width > 700;
+    const isMobile = width > 400 && width <= 700;
+
     let shelfHeight = 100;
-    if (width > 400) shelfHeight = 200;
-    if (width > 700) shelfHeight = 500;
+    if (isMobile) shelfHeight = 200;
+    if (isDesktop) shelfHeight = 500;
 
     // Show the correct text content based on what is selected on the Cameramakers shelf.
     let shelfText = '';
@@ -173,11 +177,11 @@ class App extends React.Component {
       <MuiThemeProvider muiTheme={muiTheme}>
         <div>
           <main className="center">
-            <Header smallLogo={Logo} bigLogo={FullLogo} />
+            <Header smallLogo={Logo} bigLogo={FullLogoBlack} />
             <TitleImage
               // title="Cameramakers"
               subtitle="Cultivating knowledge. Preserving cameras."
-              logo={FullLogo}
+              logo={FullLogoGold}
               cornerLogo={Logo}
             />
 
@@ -261,14 +265,53 @@ class App extends React.Component {
           </main>
 
           <Footer className="Footer">
-            <h2>Contact Information</h2>
-            <ul>
-              <li>info@cameramakers.com</li>
-              <li>Kyttälänkatu 1, 33100 Tampere</li>
-              <li>+358 10 2311 7700</li>
-              <li>Runeberginkatu 2, 00100 Helsinki</li>
-              <li>+358 10 2311 7701</li>
-            </ul>
+            <h1 style={{ textAlign: isDesktop ? 'left' : 'center' }}>Cameramakers</h1>
+
+            <MultiColumn
+              columns={isDesktop ? 2 : 1}
+              contentStyle={{ padding: 0 }}
+            >
+              <h2>Contact Information</h2>
+              <p>info@cameramakers.com</p>
+            </MultiColumn>
+
+            {isDesktop ?
+              <MultiColumn
+                columns={2}
+                contentStyle={{
+                  padding: 0,
+                  width: '100%',
+                  maxWidth: '350px',
+                  textAlign: 'left',
+                  display: 'inline-block',
+                }}
+              >
+                <img src={FullLogoGold} alt="Cameramakers logo" />
+              </MultiColumn>
+              : null
+            }
+
+            <MultiColumn
+              columns={2}
+              contentStyle={{ padding: 0 }}
+            >
+              <ul>
+                <li style={{ fontWeight: 'bold' }}>Tampere</li>
+                <li>Kyttälänkatu 1, 33100 Tampere</li>
+                <li>+358 10 2311 7700</li>
+              </ul>
+            </MultiColumn>
+
+            <MultiColumn
+              columns={2}
+              contentStyle={{ padding: 0 }}
+            >
+              <ul>
+                <li style={{ fontWeight: 'bold' }}>Helsinki</li>
+                <li>Runeberginkatu 2, 00100 Helsinki</li>
+                <li>+358 10 2311 7701</li>
+              </ul>
+            </MultiColumn>
           </Footer>
         </div>
       </MuiThemeProvider>

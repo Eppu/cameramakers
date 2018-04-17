@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import stylePropType from 'react-style-proptype';
 
 import './MultiColumn.css';
 
@@ -24,7 +25,7 @@ class MultiColumn extends React.Component {
   }
 
   render() {
-    const { columns, children } = this.props;
+    const { columns, children, contentStyle } = this.props;
     let width;
 
     switch (columns) {
@@ -45,7 +46,7 @@ class MultiColumn extends React.Component {
 
     return (
       <div className="MultiColumn" style={{ width }}>
-        <div className="content">
+        <div className="content" style={contentStyle}>
           {children}
         </div>
       </div>
@@ -59,11 +60,13 @@ MultiColumn.propTypes = {
     PropTypes.element,
   ]),
   columns: PropTypes.number,
+  contentStyle: stylePropType,
 };
 
 MultiColumn.defaultProps = {
   children: [],
   columns: 2,
+  contentStyle: null,
 };
 
 export default MultiColumn;
