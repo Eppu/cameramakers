@@ -15,7 +15,6 @@ function Shelf(props) {
       overflow: 'hidden',
       marginLeft: 'auto',
       marginRight: 'auto',
-      // maxWidth: '1920px',
     },
   };
 
@@ -89,7 +88,7 @@ Shelf.propTypes = {
 
 Shelf.defaultProps = {
   images: [],
-  handleSelect: () => console.log('Handling Shelf select...'),
+  handleSelect: null,
   height: 0,
   selected: 0,
   size: { width: 0 },

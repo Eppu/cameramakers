@@ -28,7 +28,10 @@ function FullWidthImage(props) {
 
 FullWidthImage.propTypes = {
   image: PropTypes.string,
-  children: PropTypes.element,
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.element),
+    PropTypes.element,
+  ]),
 };
 
 FullWidthImage.defaultProps = {

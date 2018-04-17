@@ -54,7 +54,10 @@ class MultiColumn extends React.Component {
 }
 
 MultiColumn.propTypes = {
-  children: PropTypes.arrayOf(PropTypes.element),
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.element),
+    PropTypes.element,
+  ]),
   columns: PropTypes.number,
 };
 

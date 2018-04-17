@@ -64,18 +64,13 @@ class App extends React.Component {
     // Which cameramaker was clicked?
     const cameramakers = ['Mika', 'Kimmo', 'Jaakko', 'Jukka', 'Jennina'];
     // Send an analytics event
-    if (cameramakers[shelfSelected]) {
-      GA.event({
-        category: 'Main',
-        action: 'Select Cameramaker',
-        label: cameramakers[shelfSelected],
-      });
-    } else {
-      GA.event({
-        category: 'Main',
-        action: 'Select Cameramaker',
-      });
-    }
+    const label = cameramakers[shelfSelected] ? cameramakers[shelfSelected] : null;
+    const event = {
+      category: 'Main',
+      action: 'Select Cameramaker',
+      label,
+    };
+    GA.event(event);
   }
 
 

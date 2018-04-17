@@ -3,6 +3,7 @@
   min-height: 400px;
   margin: 0 auto;
   color: white;
+  font-weight: bold;
   text-shadow: 1px 1px 2px black;
 }
 
@@ -13,6 +14,10 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+.FullWidthImage .content p {
+  margin-top: 0;
 }
 
 .FullWidthImage .content img {
