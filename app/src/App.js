@@ -108,9 +108,9 @@ class App extends React.Component {
             <h3>Mika Parviainen</h3>
             <div className="leftBorder">
               <p className="left">
-                Mika came to Kameratori from leading the Nikon and Canon official service center
-                in Helsinki. He has been working servicing cameras for 14 years now and takes
-                care of most of the AF stuff we have going through.
+                Mika came to Kameratori from a leading role at the official Nikon and Canon
+                service center in Helsinki. He has been servicing cameras for 14 years and handles
+                most of the AF equipment we have going through.
               </p>
             </div>
           </div>
@@ -122,9 +122,9 @@ class App extends React.Component {
             <h3>Kimmo Kujanpää</h3>
             <div className="leftBorder">
               <p className="left">
-                Kimmo is the newest recruit to our service team. He is specialized in LF and
-                TLR cameras.He also likes to tinker with electronic problems, as he is a fully
-                qualified electrician and has been doing microelectronics for most of his
+                Kimmo is our service team&#39;s newest recruit, specializing in LF and
+                TLR cameras. He also likes to tinker with electronic problems, as he is a fully
+                qualified electrician who has been working with microelectronics for most of his
                 career.
               </p>
             </div>
@@ -137,10 +137,10 @@ class App extends React.Component {
             <h3>Jaakko Järvinen</h3>
             <div className="leftBorder">
               <p className="left">
-                Jaakko is originally a watchmaker that graduated from the prestigious Finnish
-                School of Watchmaking. With almost a decade of camera service experience he also
-                benefited from having had the chance to study tricks under the instruction of
-                the late Master Cameramaker Heikki Vatanen.
+                Jaakko is originally a watchmaker who graduated from the prestigious Finnish
+                School of Watchmaking. Having learned a trick or two in the mentorship of late
+                master cameramaker Heikki Vatanen, Jaakko now has almost a decade of camera
+                service experience under his belt.
               </p>
             </div>
           </div>
@@ -152,13 +152,13 @@ class App extends React.Component {
             <h3>Jukka Kelotie</h3>
             <div className="leftBorder">
               <p className="left">
-                Jukka has been servicing high end mechanical cameras so long, that he remembers
-                when AF was a new thing. Schooled by the factories of Sinar, Mamiya and Konica
-                + decades of experience at the importers service center for Leica, Linhof, Plaubel,
-                Ricoh
-                etc. Jukka is one of the few remaining original master cameramakers. We are
-                glad to have him aboard passing his knowledge to the future generations through
-                the Cameramakers team.
+                Jukka has been servicing high-end mechanical cameras for so long that he remembers
+                when AF was a new thing.
+                Trained in the factories of Sinar, Mamiya and Konica, he is one of
+                the few remaining original master cameramakers.
+                With decades of experience at importer service centers for brands including
+                Leica, Linhof, Plaubel and Ricoh, we are glad to have Jukka on board the
+                Cameramakers team passing on his knowledge to future generations.
               </p>
             </div>
           </div>
@@ -170,11 +170,11 @@ class App extends React.Component {
             <h3>Jennina Terho</h3>
             <div className="leftBorder">
               <p className="left">
-                Jennina is the soul of our Helsinki office. Central location brings a lot of
-                foot traffic and queries through the door, but Jennina keeps the storefront and
-                customers well in order. Jennina also co-ordinates the newly formed
-                @cameramakers Instagram and in the future also manages the international
-                service queries once Cameramakers gets that side ready for action.
+                Jennina is the soul of our Helsinki office.
+                Its central location brings a great deal of foot traffic and queries through
+                the door, but Jennina excels at keeping the storefront in order and customers happy.
+                Jennina also co-ordinates the brand new @cameramakers Instagram and will be managing
+                international service queries once Cameramakers is ready for broader action.
               </p>
             </div>
           </div>
@@ -182,7 +182,7 @@ class App extends React.Component {
         break;
       default:
         shelfText = (
-          <p>Select a Cameramaker to learn more about them.</p>
+          <p>Select a cameramaker to learn more about them.</p>
         );
     }
 
@@ -214,15 +214,15 @@ class App extends React.Component {
               <MultiColumn columns={3}>
                 <h2>What we do</h2>
                 <p>
-                  Specialty analog camera repairs, training programs for new talents, spare parts
-                  &amp; repair knowledge collection.
+                  Specialty analog camera repairs, training programs for new talents, and collection
+                  of repair knowledge and spare parts.
                 </p>
               </MultiColumn>
               <MultiColumn columns={3}>
                 <h2>Who we are</h2>
                 <p>
-                  Cameramakers is a group of analog camera repair experts working under the roof
-                  of the Nordic&#39;s #1 used camera shop Kameratori.
+                  Cameramakers is a group of analog camera repair experts working under the roof of
+                  Kameratori, the #1 used camera shop in the Nordics.
                 </p>
               </MultiColumn>
             </div>

@@ -114,12 +114,39 @@ class ContactForm extends React.Component {
   }
 
 
+  /**
+   * Checks if entire form is valid.
+   * @returns {bool} Whether or not the form is valid.
+  */
+  static formIsValid(state) {
+    // Which state fields do we check for errors
+    const allowed = ['firstName', 'lastName', 'email', 'subject', 'message'];
+
+    // Loop through above state fields and see if they have an error.
+    for (let i = 0; i < Object.entries(state).length; i += 1) {
+      // Get key and value from state
+      const entry = Object.entries(state)[i];
+      const key = entry[0];
+
+      // Only use state entries that belong in the message to be sent
+      if (allowed.includes(key)) {
+        const content = entry[1];
+        const { error } = content;
+        // If an error is found, return false.
+        if (error) return false;
+      }
+    }
+
+    // No errors were found. Form is valid!
+    return true;
+  }
+
+
   constructor(props) {
     super(props);
     this.state = newState;
     this.handleBlur = this.handleBlur.bind(this);
     this.handleChange = this.handleChange.bind(this);
-    this.formIsValid = this.formIsValid.bind(this);
     this.handleMail = this.handleMail.bind(this);
     this.handleError = this.handleError.bind(this);
   }
@@ -167,7 +194,7 @@ class ContactForm extends React.Component {
     // Check if new state of entire form is valid.
     let isValid = false;
     let { hasFilledForm } = this.state;
-    if (this.formIsValid(changedState)) {
+    if (ContactForm.formIsValid(changedState)) {
       isValid = true;
 
       // Has the form been filled previously? If not, change state entry and send analytics event.
@@ -212,7 +239,7 @@ class ContactForm extends React.Component {
 
     // Check if new state of entire form is invalid.
     let isValid = true;
-    if (!this.formIsValid(changedState)) {
+    if (!ContactForm.formIsValid(changedState)) {
       isValid = false;
     }
 
@@ -221,34 +248,6 @@ class ContactForm extends React.Component {
       ...changedState,
       isValid,
     });
-  }
-
-
-  /**
-   * Checks if entire form is valid.
-   * @returns {bool} Whether or not the form is valid.
-  */
-  formIsValid(state) {
-    // Which state fields do we check for errors
-    const allowed = ['firstName', 'lastName', 'email', 'subject', 'message'];
-
-    // Loop through above state fields and see if they have an error.
-    for (let i = 0; i < Object.entries(state).length; i += 1) {
-      // Get key and value from state
-      const entry = Object.entries(state)[i];
-      const key = entry[0];
-
-      // Only use state entries that belong in the message to be sent
-      if (allowed.includes(key)) {
-        const content = entry[1];
-        const { error } = content;
-        // If an error is found, return false.
-        if (error) return false;
-      }
-    }
-
-    // No errors were found. Form is valid!
-    return true;
   }
 
 
