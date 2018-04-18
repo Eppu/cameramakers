@@ -70,7 +70,7 @@ class Header extends React.Component {
             <li>I would like to...</li>
             <li><a href="#contact" onClick={() => this.handleClick('Share knowledge')}>Share knowledge</a></li>
             <li><a href="#contact" onClick={() => this.handleClick('Provide spare parts')}>Provide spare parts</a></li>
-            <li><a href="#contact" onClick={() => this.handleClick('Get a repair quote')}>Get a repair quote</a></li>
+            <li><a href="#contact" onClick={() => this.handleClick('Contact us')}>Contact us</a></li>
           </ul>
         </div>
       );

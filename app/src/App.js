@@ -295,18 +295,17 @@ class App extends React.Component {
               </MultiColumn>
               <MultiColumn columns={3}>
                 <RaisedButton
-                  label="Get a repair quote"
+                  label="Contact us"
                   primary
                   href="#contact"
                   onClick={() => App.analyticsEvent({
                     category: 'Main',
                     action: 'Select action item',
-                    label: 'Provide spare parts',
+                    label: 'Contact us',
                   })}
                 />
                 <p>
-                  Cameramakers excels in specialty analog camera gear repairs and is currently
-                  only taking on such tasks.
+                  If you have any questions about our work, please do not hesitate to contact us.
                 </p>
               </MultiColumn>
             </div>
@@ -350,7 +349,7 @@ class App extends React.Component {
               <ul>
                 <li style={{ fontWeight: 'bold' }}>Tampere</li>
                 <li>Kyttälänkatu 1, 33100 Tampere</li>
-                <li>+358 10 2311 7700</li>
+                <li>+358 10 2311 770</li>
               </ul>
             </MultiColumn>
 
@@ -361,7 +360,7 @@ class App extends React.Component {
               <ul>
                 <li style={{ fontWeight: 'bold' }}>Helsinki</li>
                 <li>Runeberginkatu 2, 00100 Helsinki</li>
-                <li>+358 10 2311 7701</li>
+                <li>+358 10 2311 771</li>
               </ul>
             </MultiColumn>
           </Footer>
