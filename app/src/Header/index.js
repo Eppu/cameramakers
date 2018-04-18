@@ -11,6 +11,7 @@ class Header extends React.Component {
     this.state = { width: 0, open: false, contentVisible: false };
     this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
     this.handleClick = this.handleClick.bind(this);
+    this.handleExpand = this.handleExpand.bind(this);
   }
 
   componentDidMount() {
@@ -32,6 +33,18 @@ class Header extends React.Component {
       action: 'Select header item',
       label,
     };
+    this.props.analytics(event);
+  }
+
+  handleExpand() {
+    const isOpen = this.state.open;
+    this.setState({ ...this.state, open: !isOpen });
+
+    const event = {
+      category: 'Header',
+      action: isOpen ? 'Close mobile header' : 'Expand mobile header',
+    };
+
     this.props.analytics(event);
   }
 
@@ -101,9 +114,7 @@ class Header extends React.Component {
           {!isDesktop ?
             <button
               className="expandTrigger"
-              onClick={() => {
-                this.setState({ ...this.state, open: !this.state.open });
-              }}
+              onClick={this.handleExpand}
             >
               <ExpandIcon
                 style={{

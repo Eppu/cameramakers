@@ -1,7 +1,8 @@
-import Paper from 'material-ui/Paper';
-import React from 'react';
 import CircularProgress from 'material-ui/CircularProgress';
+import Paper from 'material-ui/Paper';
 import RaisedButton from 'material-ui/RaisedButton';
+import React from 'react';
+import PropTypes from 'prop-types';
 import TextField from 'material-ui/TextField';
 
 import FormResult from './FormResult';
@@ -49,6 +50,8 @@ const newState = {
     status: undefined,
     error: undefined,
   },
+  isValid: false,
+  hasFilledForm: false,
 };
 
 
@@ -133,6 +136,14 @@ class ContactForm extends React.Component {
       isSending: false,
     };
     this.setState(currentState);
+
+    // Report error to analytics
+    const event = {
+      category: 'Contact Form',
+      action: 'Sending error',
+      label: errorText,
+    };
+    this.props.analytics(event);
   }
 
 
@@ -150,8 +161,34 @@ class ContactForm extends React.Component {
     // Validate input, trying to remove any error messages that were present.
     newItem = ContactForm.tryToMakeValid(name, newItem);
 
+    // Initialize an object that will eventually become the new state.
+    const changedState = { ...this.state, [name]: newItem };
+
+    // Check if new state of entire form is valid.
+    let isValid = false;
+    let { hasFilledForm } = this.state;
+    if (this.formIsValid(changedState)) {
+      isValid = true;
+
+      // Has the form been filled previously? If not, change state entry and send analytics event.
+      if (!hasFilledForm) {
+        hasFilledForm = true;
+
+        // Tell analytics the form was filled successfully
+        const analyticsEvent = {
+          category: 'Contact Form',
+          action: 'Filled form',
+        };
+        this.props.analytics(analyticsEvent);
+      }
+    }
+
     // Update state
-    this.setState({ [name]: newItem });
+    this.setState({
+      ...changedState,
+      isValid,
+      hasFilledForm,
+    });
   }
 
 
@@ -170,8 +207,20 @@ class ContactForm extends React.Component {
     // Mark that this item was touched
     newItem = { ...newItem, touched: true };
 
+    // Initialize an object that will eventually become the new state.
+    const changedState = { ...this.state, [name]: newItem };
+
+    // Check if new state of entire form is invalid.
+    let isValid = true;
+    if (!this.formIsValid(changedState)) {
+      isValid = false;
+    }
+
     // Update state
-    this.setState({ [name]: newItem });
+    this.setState({
+      ...changedState,
+      isValid,
+    });
   }
 
 
@@ -179,17 +228,17 @@ class ContactForm extends React.Component {
    * Checks if entire form is valid.
    * @returns {bool} Whether or not the form is valid.
   */
-  formIsValid() {
+  formIsValid(state) {
     // Which state fields do we check for errors
     const allowed = ['firstName', 'lastName', 'email', 'subject', 'message'];
 
     // Loop through above state fields and see if they have an error.
-    for (let i = 0; i < Object.entries(this.state).length; i += 1) {
+    for (let i = 0; i < Object.entries(state).length; i += 1) {
       // Get key and value from state
-      const entry = Object.entries(this.state)[i];
+      const entry = Object.entries(state)[i];
       const key = entry[0];
 
-      // Only use state entries that belong in the email
+      // Only use state entries that belong in the message to be sent
       if (allowed.includes(key)) {
         const content = entry[1];
         const { error } = content;
@@ -255,6 +304,12 @@ class ContactForm extends React.Component {
             .then((data) => {
               // Sending was OK and response data was successfully parsed.
               this.setState({ ...newState, response: data, isSending: false });
+              // Report success to analytics
+              const event = {
+                category: 'Contact Form',
+                action: 'Sending success',
+              };
+              this.props.analytics(event);
             })
             .catch(() => {
               // Could not parse response as JSON. Create an error in state.
@@ -273,7 +328,7 @@ class ContactForm extends React.Component {
 
 
   render() {
-    const isValid = this.formIsValid();
+    const { isValid } = this.state;
 
     return (
       <div className="container">
@@ -365,5 +420,13 @@ class ContactForm extends React.Component {
     );
   }
 }
+
+ContactForm.propTypes = {
+  analytics: PropTypes.func,
+};
+
+ContactForm.defaultProps = {
+  analytics: null,
+};
 
 export default ContactForm;

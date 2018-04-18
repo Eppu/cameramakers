@@ -24,7 +24,7 @@
   width: 100%;
 }
 
-.FullWidthImage .content:hover {
+.FullWidthImage .content img:hover {
   -webkit-filter: brightness(1.1);
   -moz-filter: brightness(1.1);
   -o-filter: brightness(1.1);

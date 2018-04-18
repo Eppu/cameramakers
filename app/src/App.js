@@ -190,7 +190,12 @@ class App extends React.Component {
       <MuiThemeProvider muiTheme={muiTheme}>
         <div>
           <main className="center">
-            <Header smallLogo={Logo} bigLogo={FullLogoBlack} isDesktop={isDesktop} analytics={App.analyticsEvent} />
+            <Header
+              smallLogo={Logo}
+              bigLogo={FullLogoBlack}
+              isDesktop={isDesktop}
+              analytics={App.analyticsEvent}
+            />
             <TitleImage
               // title="Cameramakers"
               subtitle="Cultivating knowledge. Preserving cameras."
@@ -237,7 +242,14 @@ class App extends React.Component {
 
             <FullWidthImage image={TeamPhoto}>
               <p>A brief history about our parent company in Finland</p>
-              <a href="https://www.youtube.com/watch?v=KglgH5kPtkI">
+              <a
+                href="https://www.youtube.com/watch?v=KglgH5kPtkI"
+                onClick={() => App.analyticsEvent({
+                  category: 'Main',
+                  action: 'Select link',
+                  label: 'Kameratori 7 years video',
+                })}
+              >
                 <img
                   src={DocPhoto}
                   alt="Kameratori 7 years. Watch the documentary."
@@ -249,14 +261,32 @@ class App extends React.Component {
             <div className="summary" id="action">
               <h2 className="sectionTitle">I would like to...</h2>
               <MultiColumn columns={3}>
-                <RaisedButton label="Share knowledge" primary href="#contact" />
+                <RaisedButton
+                  label="Share knowledge"
+                  primary
+                  href="#contact"
+                  onClick={() => App.analyticsEvent({
+                    category: 'Main',
+                    action: 'Select action item',
+                    label: 'Share knowledge',
+                  })}
+                />
                 <p>
                   Do you have any knowledge of repair documentation that might be valuable
                   for the preservation of a camera type?
                 </p>
               </MultiColumn>
               <MultiColumn columns={3}>
-                <RaisedButton label="Provide spare parts" primary href="#contact" />
+                <RaisedButton
+                  label="Provide spare parts"
+                  primary
+                  href="#contact"
+                  onClick={() => App.analyticsEvent({
+                    category: 'Main',
+                    action: 'Select action item',
+                    label: 'Provide spare parts',
+                  })}
+                />
                 <p>
                   Even broken or unwanted cameras are better in our hands than in the garbage!
                   We are constantly looking to grow our spare parts collection so that we can repair
@@ -264,7 +294,16 @@ class App extends React.Component {
                 </p>
               </MultiColumn>
               <MultiColumn columns={3}>
-                <RaisedButton label="Get a repair quote" primary href="#contact" />
+                <RaisedButton
+                  label="Get a repair quote"
+                  primary
+                  href="#contact"
+                  onClick={() => App.analyticsEvent({
+                    category: 'Main',
+                    action: 'Select action item',
+                    label: 'Provide spare parts',
+                  })}
+                />
                 <p>
                   Cameramakers excels in specialty analog camera gear repairs and is currently
                   only taking on such tasks.
@@ -273,7 +312,7 @@ class App extends React.Component {
             </div>
 
             <div id="contact">
-              <ContactForm />
+              <ContactForm analytics={App.analyticsEvent} />
             </div>
           </main>
 
