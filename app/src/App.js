@@ -173,7 +173,7 @@ class App extends React.Component {
                 Jennina is the soul of our Helsinki office.
                 Its central location brings a great deal of foot traffic and queries through
                 the door, but Jennina excels at keeping the storefront in order and customers happy.
-                Jennina also co-ordinates the brand new @cameramakers Instagram and will be managing
+                Jennina also co-ordinates the brand new <a href="https://www.instagram.com/cameramakers/" target="_blank" rel="noopener noreferrer">@cameramakers</a> Instagram and will be managing
                 international service queries once Cameramakers is ready for broader action.
               </p>
             </div>
@@ -359,7 +359,7 @@ class App extends React.Component {
             >
               <ul>
                 <li style={{ fontWeight: 'bold' }}>Helsinki</li>
-                <li>Runeberginkatu 2, 00100 Helsinki</li>
+                <li>Aleksis Kiven katu 17 A, 00510 Helsinki</li>
                 <li>+358 10 2311 771</li>
               </ul>
             </MultiColumn>

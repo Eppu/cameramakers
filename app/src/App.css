@@ -20,6 +20,22 @@ h2 {
   font-weight: 500;
 }
 
+strong {
+  color: #DCAC46;
+}
+
+a {
+  color: #DCAC46;
+}
+
+a:active, a:hover, a:focus {
+  color: #f1be53;
+}
+
+a:visited {
+  color: #af8836;
+}
+
 .summary {
   max-width: 1400px;
   margin: 8em auto;

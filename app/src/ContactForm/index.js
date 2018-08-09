@@ -334,6 +334,9 @@ class ContactForm extends React.Component {
         <Paper className="ContactForm">
           <div className="formInputs">
             <h2>Contact Us</h2>
+            <p>
+              Our repair expertise is currently focused on restoring a vast amount of <a href="//kamerastore.com" target="_blank" rel="noopener noreferrer">Kamerastore&#39;s</a> products and <strong>we are unable to accept commissions</strong> for this reason.
+            </p>
             <div className="halfWidth">
               <TextField
                 value={this.state.firstName.value}
