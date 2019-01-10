@@ -21,9 +21,7 @@ import DocPhoto from './assets/img/doc_banner.png';
 import FullLogoBlack from './assets/img/logo/black/CM_Basic_Black_Rgb.svg';
 import FullLogoGold from './assets/img/logo/gold/CM_Basic_Gold_Rgb.svg';
 import Jaakko from './assets/img/team/jaakko.jpg';
-import Jennina from './assets/img/team/jennina.jpg';
 import Jukka from './assets/img/team/jukka.jpg';
-import Kimmo from './assets/img/team/kimmo.jpg';
 import Logo from './assets/img/logo/black/CM_ID_Black_Rgb.svg';
 import Mika from './assets/img/team/mika.jpg';
 import TeamPhoto from './assets/img/team/team_01.jpg';
@@ -76,7 +74,7 @@ class App extends React.Component {
     });
 
     // Which cameramaker was clicked?
-    const cameramakers = ['Mika', 'Kimmo', 'Jaakko', 'Jukka', 'Jennina'];
+    const cameramakers = ['Mika', 'Jaakko', 'Jukka'];
     // Send an analytics event
     const label = cameramakers[shelfSelected] ? cameramakers[shelfSelected] : null;
     const event = {
@@ -119,21 +117,6 @@ class App extends React.Component {
       case 1:
         shelfText = (
           <div>
-            <h3>Kimmo Kujanpää</h3>
-            <div className="leftBorder">
-              <p className="left">
-                Kimmo is our service team&#39;s newest recruit, specializing in LF and
-                TLR cameras. He also likes to tinker with electronic problems, as he is a fully
-                qualified electrician who has been working with microelectronics for most of his
-                career.
-              </p>
-            </div>
-          </div>
-        );
-        break;
-      case 2:
-        shelfText = (
-          <div>
             <h3>Jaakko Järvinen</h3>
             <div className="leftBorder">
               <p className="left">
@@ -146,7 +129,7 @@ class App extends React.Component {
           </div>
         );
         break;
-      case 3:
+      case 2:
         shelfText = (
           <div>
             <h3>Jukka Kelotie</h3>
@@ -159,22 +142,6 @@ class App extends React.Component {
                 With decades of experience at importer service centers for brands including
                 Leica, Linhof, Plaubel and Ricoh, we are glad to have Jukka on board the
                 Cameramakers team passing on his knowledge to future generations.
-              </p>
-            </div>
-          </div>
-        );
-        break;
-      case 4:
-        shelfText = (
-          <div>
-            <h3>Jennina Terho</h3>
-            <div className="leftBorder">
-              <p className="left">
-                Jennina is the soul of our Helsinki office.
-                Its central location brings a great deal of foot traffic and queries through
-                the door, but Jennina excels at keeping the storefront in order and customers happy.
-                Jennina also co-ordinates the brand new <a href="https://www.instagram.com/cameramakers/" target="_blank" rel="noopener noreferrer">@cameramakers</a> Instagram and will be managing
-                international service queries once Cameramakers is ready for broader action.
               </p>
             </div>
           </div>
@@ -228,7 +195,7 @@ class App extends React.Component {
             </div>
 
             <Shelf
-              images={[Mika, Kimmo, Jaakko, Jukka, Jennina]}
+              images={[Mika, Jaakko, Jukka]}
               height={shelfHeight}
               selected={shelfSelected}
               handleSelect={this.handleShelfSelect}
