@@ -53,7 +53,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      shelfSelected: Math.floor(Math.random() * 5),
+      shelfSelected: Math.floor(Math.random() * 3),
     };
     this.handleShelfSelect = this.handleShelfSelect.bind(this);
 
