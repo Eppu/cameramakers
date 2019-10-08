@@ -20,7 +20,6 @@ import TitleImage from './TitleImage';
 import DocPhoto from './assets/img/doc_banner.png';
 import FullLogoBlack from './assets/img/logo/black/CM_Basic_Black_Rgb.svg';
 import FullLogoGold from './assets/img/logo/gold/CM_Basic_Gold_Rgb.svg';
-import Jaakko from './assets/img/team/jaakko.jpg';
 import Jukka from './assets/img/team/jukka.jpg';
 import Logo from './assets/img/logo/black/CM_ID_Black_Rgb.svg';
 import Mika from './assets/img/team/mika.jpg';
@@ -53,7 +52,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      shelfSelected: Math.floor(Math.random() * 3),
+      shelfSelected: Math.floor(Math.random() * 2),
     };
     this.handleShelfSelect = this.handleShelfSelect.bind(this);
 
@@ -74,7 +73,7 @@ class App extends React.Component {
     });
 
     // Which cameramaker was clicked?
-    const cameramakers = ['Mika', 'Jaakko', 'Jukka'];
+    const cameramakers = ['Mika', 'Jukka'];
     // Send an analytics event
     const label = cameramakers[shelfSelected] ? cameramakers[shelfSelected] : null;
     const event = {
@@ -115,21 +114,6 @@ class App extends React.Component {
         );
         break;
       case 1:
-        shelfText = (
-          <div>
-            <h3>Jaakko Järvinen</h3>
-            <div className="leftBorder">
-              <p className="left">
-                Jaakko is originally a watchmaker who graduated from the prestigious Finnish
-                School of Watchmaking. Having learned a trick or two in the mentorship of late
-                master cameramaker Heikki Vatanen, Jaakko now has almost a decade of camera
-                service experience under his belt.
-              </p>
-            </div>
-          </div>
-        );
-        break;
-      case 2:
         shelfText = (
           <div>
             <h3>Jukka Kelotie</h3>
@@ -195,7 +179,7 @@ class App extends React.Component {
             </div>
 
             <Shelf
-              images={[Mika, Jaakko, Jukka]}
+              images={[Mika, Jukka]}
               height={shelfHeight}
               selected={shelfSelected}
               handleSelect={this.handleShelfSelect}
