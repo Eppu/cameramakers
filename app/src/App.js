@@ -17,13 +17,15 @@ import Shelf from './Shelf';
 import TitleImage from './TitleImage';
 
 // Assets
+import Ari from './assets/img/team/ari.jpg';
 import DocPhoto from './assets/img/doc_banner.png';
 import FullLogoBlack from './assets/img/logo/black/CM_Basic_Black_Rgb.svg';
 import FullLogoGold from './assets/img/logo/gold/CM_Basic_Gold_Rgb.svg';
 import Jukka from './assets/img/team/jukka.jpg';
 import Logo from './assets/img/logo/black/CM_ID_Black_Rgb.svg';
 import Mika from './assets/img/team/mika.jpg';
-import TeamPhoto from './assets/img/team/team_01.jpg';
+import TeamPhoto from './assets/img/team/team_2019.jpg';
+import Toni from './assets/img/team/toni.jpg';
 import './App.css';
 
 // Create a theme for material-ui
@@ -73,7 +75,7 @@ class App extends React.Component {
     });
 
     // Which cameramaker was clicked?
-    const cameramakers = ['Mika', 'Jukka'];
+    const cameramakers = ['Mika', 'Jukka', 'Ari', 'Toni'];
     // Send an analytics event
     const label = cameramakers[shelfSelected] ? cameramakers[shelfSelected] : null;
     const event = {
@@ -131,6 +133,33 @@ class App extends React.Component {
           </div>
         );
         break;
+      case 2:
+        shelfText = (
+          <div>
+            <h3>Ari Yli-Hukkala</h3>
+            <div className="leftBorder">
+              <p classNamer="left">
+              Ari comes from a background of mechanical engineering, but he's also known to revive all sorts of old electronic devices.
+              He is our rising star of Leica repairs. Putting endless hours in training with the smallest details of Leica bodies and lenses, we see a bright future ahead of him in the high end of mechanical repairs.
+               
+              </p>
+            </div>
+          </div>
+        );
+        break;
+      case 3:
+        shelfText = (
+          <div>
+            <h3>Toni Mattila</h3>
+            <div className="leftBorder">
+              <p classNamer="left">
+              Toni has combined his tinkering skills with his passion for mechanical cameras and film photography. Always eager to learn more, he has a training in Mamiya cameras by Master Jukka, and also does Hasselblad, Nikon and Rollei service among others. 
+              Toni feels cameras deserve quality maintenance and takes pride in fixing them with proper tools and knowledge.  
+              </p>
+            </div>
+          </div>
+        );
+        break;
       default:
         shelfText = (
           <p>Select a cameramaker to learn more about them.</p>
@@ -179,7 +208,7 @@ class App extends React.Component {
             </div>
 
             <Shelf
-              images={[Mika, Jukka]}
+              images={[Mika, Jukka, Ari, Toni]}
               height={shelfHeight}
               selected={shelfSelected}
               handleSelect={this.handleShelfSelect}

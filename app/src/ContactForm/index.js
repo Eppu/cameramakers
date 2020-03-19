@@ -336,6 +336,7 @@ class ContactForm extends React.Component {
             <h2>Contact Us</h2>
             <p>
               Our repair expertise is currently focused on restoring a vast amount of <a href="//kamerastore.com" target="_blank" rel="noopener noreferrer">Kamerastore&#39;s</a> products and <strong>we are unable to accept commissions</strong> for this reason.
+              If you would like to offer us your cameras for spare parts, try to send your cameras in bulk. It's better economically, and environmentally.
             </p>
             <div className="halfWidth">
               <TextField
