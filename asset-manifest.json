@@ -1,14 +1,16 @@
 {
   "main.css": "static/css/main.1236d770.css",
   "main.css.map": "static/css/main.1236d770.css.map",
-  "main.js": "static/js/main.2772805b.js",
-  "main.js.map": "static/js/main.2772805b.js.map",
+  "main.js": "static/js/main.bca5ca1b.js",
+  "main.js.map": "static/js/main.bca5ca1b.js.map",
   "static/media/CM_Basic_Black_Rgb.svg": "static/media/CM_Basic_Black_Rgb.e30329e2.svg",
   "static/media/CM_Basic_Gold_Rgb.svg": "static/media/CM_Basic_Gold_Rgb.fa0ae8c2.svg",
   "static/media/CM_ID_Black_Rgb.svg": "static/media/CM_ID_Black_Rgb.c8383da3.svg",
+  "static/media/ari.jpg": "static/media/ari.eb293527.jpg",
   "static/media/doc_banner.png": "static/media/doc_banner.09ecec1a.png",
-  "static/media/jukka.jpg": "static/media/jukka.f256e1b9.jpg",
+  "static/media/jukka.jpg": "static/media/jukka.32c8ce8f.jpg",
   "static/media/mainImage.jpg": "static/media/mainImage.6f1fe2d7.jpg",
-  "static/media/mika.jpg": "static/media/mika.be63c4f2.jpg",
-  "static/media/team_01.jpg": "static/media/team_01.7e940602.jpg"
+  "static/media/mika.jpg": "static/media/mika.ca0846c8.jpg",
+  "static/media/team_2019.jpg": "static/media/team_2019.d1e4e92d.jpg",
+  "static/media/toni.jpg": "static/media/toni.d7c8a745.jpg"
 }
